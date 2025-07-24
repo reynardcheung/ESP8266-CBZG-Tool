@@ -6,8 +6,9 @@
 ## 许可证
 本项目采用 **BSD 3-Clause** 许可证。
 
-## 直接使用链接
-https://wwvs.lanzoue.com/ivpft31scg1c
+## 程序下载链接
+[https://wwvs.lanzoue.com/ivpft31scg1c]
+密码:arql
 
 ## 核心功能
 - **网页配网**：AP模式快速配置WiFi参数
