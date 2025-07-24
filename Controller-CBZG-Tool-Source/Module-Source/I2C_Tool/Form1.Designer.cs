@@ -28,30 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            I2C_Tool.ColorItem colorItem13 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem14 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem15 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem16 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem17 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem18 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem19 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem20 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem21 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem22 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem23 = new I2C_Tool.ColorItem();
-            I2C_Tool.ColorItem colorItem24 = new I2C_Tool.ColorItem();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DeviceScanButton = new System.Windows.Forms.Button();
             this.DeviceComboBox = new System.Windows.Forms.ComboBox();
             this.RegisterGridView = new System.Windows.Forms.DataGridView();
-            this.设备地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.寄存器地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.寄存器数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label = new System.Windows.Forms.Label();
             this.DialogDeviceAddrComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -97,6 +81,10 @@
             this.NumberPerPixel = new System.Windows.Forms.NumericUpDown();
             this.WavePictureBox1 = new I2C_Tool.WavePictureBox();
             this.ColorBox = new I2C_Tool.ColorComboBox();
+            this.设备地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REG地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.寄存器数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.RegisterGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlushRegFrequent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DialogReadBytesNumber)).BeginInit();
@@ -131,18 +119,18 @@
             this.RegisterGridView.AllowUserToAddRows = false;
             this.RegisterGridView.AllowUserToDeleteRows = false;
             this.RegisterGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RegisterGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RegisterGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.RegisterGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RegisterGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.设备地址,
-            this.寄存器地址,
+            this.REG地址,
             this.寄存器数量,
             this.内容});
             this.RegisterGridView.GridColor = System.Drawing.Color.Orange;
@@ -158,52 +146,6 @@
             this.RegisterGridView.Size = new System.Drawing.Size(372, 420);
             this.RegisterGridView.TabIndex = 2;
             this.RegisterGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.RegisterGridView_CellFormatting);
-            // 
-            // 设备地址
-            // 
-            this.设备地址.DataPropertyName = "DeviceAddress";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.设备地址.DefaultCellStyle = dataGridViewCellStyle6;
-            this.设备地址.HeaderText = "设备地址";
-            this.设备地址.MinimumWidth = 9;
-            this.设备地址.Name = "设备地址";
-            this.设备地址.ReadOnly = true;
-            this.设备地址.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.设备地址.Width = 125;
-            // 
-            // 寄存器地址
-            // 
-            this.寄存器地址.DataPropertyName = "RegisterAddress";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.寄存器地址.DefaultCellStyle = dataGridViewCellStyle7;
-            this.寄存器地址.HeaderText = "REG地址";
-            this.寄存器地址.MinimumWidth = 9;
-            this.寄存器地址.Name = "寄存器地址";
-            this.寄存器地址.ReadOnly = true;
-            this.寄存器地址.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.寄存器地址.Width = 125;
-            // 
-            // 寄存器数量
-            // 
-            this.寄存器数量.DataPropertyName = "RegisterNumber";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.寄存器数量.DefaultCellStyle = dataGridViewCellStyle8;
-            this.寄存器数量.HeaderText = "字节数量";
-            this.寄存器数量.MinimumWidth = 9;
-            this.寄存器数量.Name = "寄存器数量";
-            this.寄存器数量.ReadOnly = true;
-            this.寄存器数量.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.寄存器数量.Width = 125;
-            // 
-            // 内容
-            // 
-            this.内容.DataPropertyName = "RegisterValue";
-            this.内容.HeaderText = "内容";
-            this.内容.MinimumWidth = 9;
-            this.内容.Name = "内容";
-            this.内容.ReadOnly = true;
-            this.内容.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.内容.Width = 175;
             // 
             // Label
             // 
@@ -725,48 +667,57 @@
             this.ColorBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.ColorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ColorBox.FormattingEnabled = true;
-            colorItem13.Color = System.Drawing.Color.Red;
-            colorItem13.Name = "红";
-            colorItem14.Color = System.Drawing.Color.Lime;
-            colorItem14.Name = "绿";
-            colorItem15.Color = System.Drawing.Color.DeepSkyBlue;
-            colorItem15.Name = "蓝";
-            colorItem16.Color = System.Drawing.Color.Yellow;
-            colorItem16.Name = "黄";
-            colorItem17.Color = System.Drawing.Color.Black;
-            colorItem17.Name = "黑";
-            colorItem18.Color = System.Drawing.Color.HotPink;
-            colorItem18.Name = "粉";
-            colorItem19.Color = System.Drawing.Color.Red;
-            colorItem19.Name = "红";
-            colorItem20.Color = System.Drawing.Color.Lime;
-            colorItem20.Name = "绿";
-            colorItem21.Color = System.Drawing.Color.DeepSkyBlue;
-            colorItem21.Name = "蓝";
-            colorItem22.Color = System.Drawing.Color.Yellow;
-            colorItem22.Name = "黄";
-            colorItem23.Color = System.Drawing.Color.Black;
-            colorItem23.Name = "黑";
-            colorItem24.Color = System.Drawing.Color.HotPink;
-            colorItem24.Name = "粉";
-            this.ColorBox.Items.AddRange(new object[] {
-            colorItem13,
-            colorItem14,
-            colorItem15,
-            colorItem16,
-            colorItem17,
-            colorItem18,
-            colorItem19,
-            colorItem20,
-            colorItem21,
-            colorItem22,
-            colorItem23,
-            colorItem24});
             this.ColorBox.Location = new System.Drawing.Point(645, 56);
             this.ColorBox.Name = "ColorBox";
             this.ColorBox.SelectedColor = System.Drawing.Color.Empty;
             this.ColorBox.Size = new System.Drawing.Size(89, 32);
             this.ColorBox.TabIndex = 65;
+            // 
+            // 设备地址
+            // 
+            this.设备地址.DataPropertyName = "DeviceAddress";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.设备地址.DefaultCellStyle = dataGridViewCellStyle2;
+            this.设备地址.HeaderText = "设备地址";
+            this.设备地址.MinimumWidth = 9;
+            this.设备地址.Name = "设备地址";
+            this.设备地址.ReadOnly = true;
+            this.设备地址.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.设备地址.Width = 125;
+            // 
+            // REG地址
+            // 
+            this.REG地址.DataPropertyName = "RegisterAddress";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.REG地址.DefaultCellStyle = dataGridViewCellStyle3;
+            this.REG地址.HeaderText = "REG地址";
+            this.REG地址.MinimumWidth = 9;
+            this.REG地址.Name = "REG地址";
+            this.REG地址.ReadOnly = true;
+            this.REG地址.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.REG地址.Width = 125;
+            // 
+            // 寄存器数量
+            // 
+            this.寄存器数量.DataPropertyName = "RegisterNumber";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.寄存器数量.DefaultCellStyle = dataGridViewCellStyle4;
+            this.寄存器数量.HeaderText = "字节数量";
+            this.寄存器数量.MinimumWidth = 9;
+            this.寄存器数量.Name = "寄存器数量";
+            this.寄存器数量.ReadOnly = true;
+            this.寄存器数量.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.寄存器数量.Width = 125;
+            // 
+            // 内容
+            // 
+            this.内容.DataPropertyName = "RegisterValue";
+            this.内容.HeaderText = "内容";
+            this.内容.MinimumWidth = 9;
+            this.内容.Name = "内容";
+            this.内容.ReadOnly = true;
+            this.内容.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.内容.Width = 175;
             // 
             // Form1
             // 
@@ -889,10 +840,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown NumberPerPixel;
         private ColorComboBox ColorBox;
+        private WavePictureBox WavePictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 设备地址;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 寄存器地址;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REG地址;
         private System.Windows.Forms.DataGridViewTextBoxColumn 寄存器数量;
         private System.Windows.Forms.DataGridViewTextBoxColumn 内容;
-        private WavePictureBox WavePictureBox1;
     }
 }

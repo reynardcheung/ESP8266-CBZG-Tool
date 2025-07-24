@@ -32,6 +32,13 @@ namespace I2C_Tool
             Module = mod;
             Tool = new I2C_Tool_Class(Stream);
             RegisterGridView.DoubleBufferedDataGirdView(true);
+            ColorBox.AddColor("红", Color.Red);
+            ColorBox.AddColor("绿", Color.Lime);
+            ColorBox.AddColor("蓝", Color.DeepSkyBlue);
+            ColorBox.AddColor("黄", Color.Yellow);
+            ColorBox.AddColor("黑", Color.Black);
+            ColorBox.AddColor("粉", Color.HotPink);
+            ColorBox.SelectedIndex = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,6 +54,8 @@ namespace I2C_Tool
             ListDeviceAddrComboBox.DataSource = I2C_Device_Group.I2C_Devices;
 
             DevComboBox.DataSource = I2C_Device_Group.I2C_Devices;
+
+            DialogDeviceAddrComboBox.DataSource = I2C_Device_Group.I2C_Devices;
 
             WaveList.DataSource = Wave_Group.WaveUnits;
             WaveList.DisplayMember = "WaveName";
@@ -762,13 +771,6 @@ namespace I2C_Tool
             this.DrawMode = DrawMode.OwnerDrawFixed;
             this.DropDownStyle = ComboBoxStyle.DropDownList;
             this.DrawItem += ColorComboBox_DrawItem;
-
-            AddColor("红", Color.Red);
-            AddColor("绿", Color.Lime);
-            AddColor("蓝", Color.DeepSkyBlue);
-            AddColor("黄", Color.Yellow);
-            AddColor("黑", Color.Black);
-            AddColor("粉", Color.HotPink);
         }
 
         public void AddColor(string name, Color color)
@@ -1282,7 +1284,7 @@ namespace I2C_Tool
                     {
                         _graphics.DrawString(info, Font, brush, xPos + 5, infoY);
                     }
-                    infoY += 15;
+                    infoY += 20;
                 }
             }
         }
