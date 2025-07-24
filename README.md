@@ -6,10 +6,14 @@
 ## 许可证
 本项目采用 **BSD 3-Clause** 许可证。
 
+## 程序下载链接
+[https://wwvs.lanzoue.com/ivpft31scg1c]
+密码:arql
+
 ## 核心功能
 - **网页配网**：AP模式快速配置WiFi参数
 - **设备控制**：远程休眠、重启、参数配置
-- **GPIO控制**：实时状态监控与操作（PWM功能暂不可用）
+- **GPIO控制**：远程操作GPIO状态（PWM功能暂不可用）
 - **OLED显示**：无线控制0.96英寸OLED
 - **串口透传**：远程串口数据交互
 - **STM32烧录**：无线刷写STM32固件
@@ -42,7 +46,8 @@ make menuconfig
 建议先擦除Flash后再进行烧录
 关键烧录设置：
 Flash Size: 根据你的模块Flash大小选择，市面通常1MB
-Flash Mode: DIO
+Flash Mode: QIO
+SPI SPEED: 40MHz
 波特率: ≤1Mbps
 
 ## 使用说明
@@ -75,6 +80,9 @@ WiFi SSID和密码（仅支持2.4GHz网络）
 3.检查信号强度
 ### PWM功能异常
 PWM功能暂时无法使用，原因未知，查询多方资料，查看例程无果
+### 上位机可能存在的内存泄漏
+正在查明原因
+### 其他问题请告知我
 
 
 ## 致谢
