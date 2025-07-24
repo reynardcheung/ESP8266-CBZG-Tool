@@ -17,7 +17,6 @@ using static System.Windows.Forms.AxHost;
 
 namespace SSD1306
 {
-    // 主窗体使用封装的绘图控件
     public partial class Form1 : Form
     {
         NetworkStream stream { get; set; }
@@ -34,14 +33,12 @@ namespace SSD1306
             module = mod;
             GIFBitmap = new ArrayList();
 
-            // 创建并配置像素网格
             pixelGrid.PixelSize = 5;
             pixelGrid.Rows = 64;
             pixelGrid.Columns = 128;
             pixelGrid.Size = new Size(640, 320);
             pixelGrid.BorderStyle = BorderStyle.Fixed3D;
 
-            // 添加到窗体
             this.Controls.Add(pixelGrid);
 
             SendTextObj = new SendText(this.UserTextBox);
@@ -230,18 +227,16 @@ namespace SSD1306
                 FontNameComboBox.Items.Add(fontName);
                 if (fontName.Equals("宋体", StringComparison.OrdinalIgnoreCase))
                 {
-                    defaultIndex = i; // 记录“宋体”的索引
+                    defaultIndex = i;
                 }
             }
 
-            // 如果找到“宋体”，设置为默认选中
             if (defaultIndex != -1)
             {
                 FontNameComboBox.SelectedIndex = defaultIndex;
             }
             else
             {
-                // 如果没有“宋体”，可以设置第一个为默认，或者不设置
                 if (FontNameComboBox.Items.Count > 0)
                 {
                     FontNameComboBox.SelectedIndex = 0;
@@ -373,7 +368,6 @@ namespace SSD1306
                     using (FileStream stream = new FileStream(FilePath, FileMode.Open))
                     {
                         Image img = Image.FromStream(stream);
-                        // 必须在UI线程上设置控件
                         Invoke((MethodInvoker)(() => {
                             BitPictureBox.Image = img;
                             FileImageBitmap = new Bitmap(img);
@@ -662,22 +656,19 @@ namespace SSD1306
                         MessageBox.Show("警告：仅支持分辨率为128*64的GIF", "注意", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                    // 获取帧维度信息
+
                     FrameDimension dimension = new FrameDimension(gifImage.FrameDimensionsList[0]);
-                    int frameCount = gifImage.GetFrameCount(dimension); // 总帧数
-                    // 遍历每一帧
+                    int frameCount = gifImage.GetFrameCount(dimension);
                     for (int i = 0; i < frameCount; i++)
                     {
-                        // 激活当前帧
                         gifImage.SelectActiveFrame(dimension, i);
 
-                        // 将当前帧转为 Bitmap
                         Bitmap frame = new Bitmap(gifImage);
                         GIFBitmap.Add(frame);
                     }
-                    // 获取帧延迟时间（毫秒）
-                    PropertyItem delayProp = gifImage.GetPropertyItem(0x5100); // 标签 0x5100 是延迟时间
-                    FrameDelay = BitConverter.ToInt32(delayProp.Value, 0) * 10; // 通常以 1/100 秒为单位
+
+                    PropertyItem delayProp = gifImage.GetPropertyItem(0x5100);
+                    FrameDelay = BitConverter.ToInt32(delayProp.Value, 0) * 10;
                 }
                 SystemStatus.ChangeStatus(SystemStatus.Status.ShowGIFMode);
                 pixelGrid.ShowGIF(GIFBitmap, FrameDelay);
@@ -752,7 +743,6 @@ namespace SSD1306
             _statusChanged?.Invoke(null, EventArgs.Empty);
         }
 
-        // 订阅管理方法
         public static bool IsSubscribed(EventHandler handler)
         {
             lock (_handlers)
@@ -773,7 +763,6 @@ namespace SSD1306
 
             if (disposing)
             {
-                // 释放托管资源
                 lock (_handlers)
                 {
                     foreach (var handler in _handlers)
@@ -784,7 +773,6 @@ namespace SSD1306
                 }
             }
 
-            // 这里没有非托管资源需要释放
             _disposed = true;
         }
 
@@ -793,30 +781,23 @@ namespace SSD1306
             Dispose(false);
         }
     }
-
-    // 封装绘图功能的独立类
     public class PixelGridEditor : Panel
     {
-        // 配置属性
         public int PixelSize { get; set; } = 5;
         public int Rows { get; set; } = 64;
         public int Columns { get; set; } = 128;
-
-        // 像素数据
         public bool[,] PixelData { get; private set; }
 
-        // 内部状态
         private Bitmap bufferBitmap;
         private Graphics bufferGraphics;
         private bool isDrawing = false;
         private Point lastDrawPoint;
         private bool currentDrawMode;
         private Rectangle lastDrawRegion;
-        private bool[,] initialDrawState;  // 保存拖动开始时的状态
+        private bool[,] initialDrawState;
         private bool GIFPlay = false;
         private Thread GIFPlayTheard;
 
-        // 事件
         public event Func<object,EventArgs,Task> PixelChanged;
         public event Func<object,EventArgs,Task> DrawingCompleted;
 
@@ -830,13 +811,11 @@ namespace SSD1306
         {
             this.SuspendLayout();
             this.ResumeLayout(false);
-            
-            // 设置样式以支持双缓冲和自定义绘制
+
             this.SetStyle(ControlStyles.AllPaintingInWmPaint |
                          ControlStyles.UserPaint |
                          ControlStyles.OptimizedDoubleBuffer, true);
 
-            // 绑定事件
             this.MouseDown += PixelGridEditor_MouseDown;
             this.MouseMove += PixelGridEditor_MouseMove;
             this.MouseUp += PixelGridEditor_MouseUp;
@@ -845,32 +824,24 @@ namespace SSD1306
 
         private void InitializeData()
         {
-            // 初始化像素数据
             PixelData = new bool[Rows, Columns];
             initialDrawState = new bool[Rows, Columns];
-
-            // 设置初始大小
             UpdateSize();
         }
 
         private void UpdateSize()
         {
-            // 根据像素设置控件大小
             this.Size = new Size(Columns * PixelSize, Rows * PixelSize);
-
-            // 重新创建缓冲
             InitializeBuffer();
         }
 
         private void InitializeBuffer()
         {
-            // 清理旧资源
             bufferGraphics?.Dispose();
             bufferBitmap?.Dispose();
 
             if (this.Width > 0 && this.Height > 0)
             {
-                // 创建新缓冲
                 bufferBitmap = new Bitmap(this.Width, this.Height);
                 bufferGraphics = Graphics.FromImage(bufferBitmap);
                 RedrawFullBuffer();
@@ -880,35 +851,26 @@ namespace SSD1306
         public async Task ShowBitmap(Bitmap bitmap, int X, int Y)
         {
             if (bitmap == null) return;
-
-            // 计算位图在像素网格中的有效范围
             int startX = Math.Max(X, 0);
             int startY = Math.Max(Y, 0);
             int endX = Math.Min(X + bitmap.Width - 1, Columns - 1);
             int endY = Math.Min(Y + bitmap.Height - 1, Rows - 1);
-
-            // 检查是否有有效区域需要处理
             if (startX > endX || startY > endY) return;
 
-            // 更新像素数据
             for (int y = startY; y <= endY; y++)
             {
                 for (int x = startX; x <= endX; x++)
                 {
-                    // 计算位图中的对应位置
                     int bitmapX = x - X;
                     int bitmapY = y - Y;
 
-                    // 获取像素颜色并转换为二值状态
                     Color color = bitmap.GetPixel(bitmapX, bitmapY);
                     bool newValue = !(color.R == 0 && color.G == 0 && color.B == 0);
 
-                    // 更新像素数据
                     PixelData[y, x] = newValue;
                 }
             }
 
-            // 更新缓冲区中的对应区域
             for (int y = startY; y <= endY; y++)
             {
                 for (int x = startX; x <= endX; x++)
@@ -917,7 +879,6 @@ namespace SSD1306
                 }
             }
 
-            // 计算需要重绘的控件区域
             Rectangle updateRegion = new Rectangle(
                 startX * PixelSize,
                 startY * PixelSize,
@@ -925,20 +886,17 @@ namespace SSD1306
                 (endY - startY + 1) * PixelSize
             );
 
-            // 触发重绘
             this.Invalidate(updateRegion);
 
             if (SystemStatus.CurrentStatus >= SystemStatus.Status.Connected)
             {
                 if (PixelChanged != null)
                 {
-                    // 触发事件
                     await PixelChanged?.Invoke(this, new PixelChangedEventArgs(0, 0, false));
                 }
 
                 if (DrawingCompleted != null)
                 {
-                    // 触发绘制完成事件
                     await DrawingCompleted?.Invoke(this, EventArgs.Empty);
                 }
             }
@@ -948,29 +906,23 @@ namespace SSD1306
         {
             if (bitmap == null) return;
 
-            // 计算位图在像素网格中的有效范围
             int startX = Math.Max(X, 0);
             int startY = Math.Max(Y, 0);
             int endX = Math.Min(X + bitmap.Width - 1, Columns - 1);
             int endY = Math.Min(Y + bitmap.Height - 1, Rows - 1);
 
-            // 检查是否有有效区域需要处理
             if (startX > endX || startY > endY) return;
 
-            // 更新像素数据
             for (int y = startY; y <= endY; y++)
             {
                 for (int x = startX; x <= endX; x++)
                 {
-                    // 计算位图中的对应位置
                     int bitmapX = x - X;
                     int bitmapY = y - Y;
 
-                    // 获取像素颜色并转换为二值状态
                     Color color = bitmap.GetPixel(bitmapX, bitmapY);
                     bool newValue = !(color.R == 0 && color.G == 0 && color.B == 0);
 
-                    // 更新像素数据
                     PixelData[y, x] = newValue;
                 }
             }
@@ -979,13 +931,11 @@ namespace SSD1306
             {
                 if (PixelChanged != null)
                 {
-                    // 触发事件
                     PixelChanged?.Invoke(this, new PixelChangedEventArgs(0, 0, false));
                 }
 
                 if (DrawingCompleted != null)
                 {
-                    // 触发绘制完成事件
                     DrawingCompleted?.Invoke(this, EventArgs.Empty);
                 }
             }
@@ -1033,8 +983,7 @@ namespace SSD1306
                 GIFPlay = false;
                 GIFPlayTheard.Join();
             }
-            
-            // 重置所有像素
+
             Array.Clear(PixelData, 0, PixelData.Length);
             RedrawFullBuffer();
 
@@ -1042,13 +991,11 @@ namespace SSD1306
             {
                 if (PixelChanged != null)
                 {
-                    // 触发事件
                     await PixelChanged?.Invoke(this, new PixelChangedEventArgs(0, 0, false));
                 }
 
                 if (DrawingCompleted != null)
                 {
-                    // 触发绘制完成事件
                     await DrawingCompleted?.Invoke(this, EventArgs.Empty);
                 }
             }
@@ -1094,16 +1041,12 @@ namespace SSD1306
         {
             var (x, y) = GetPixelPosition(e.X, e.Y);
 
-            // 保存拖动开始时的完整状态
             Array.Copy(PixelData, initialDrawState, PixelData.Length);
 
-            // 确定当前绘制模式（基于点击位置当前状态）
             currentDrawMode = !PixelData[y, x];
 
-            // 应用起始点绘制
             SetPixel(x, y, currentDrawMode);
 
-            // 设置最后绘制点
             lastDrawPoint = new Point(x, y);
             lastDrawRegion = new Rectangle(x, y, 1, 1);
 
@@ -1117,30 +1060,23 @@ namespace SSD1306
             var (currentX, currentY) = GetPixelPosition(e.X, e.Y);
             Point currentPoint = new Point(currentX, currentY);
 
-            // 如果位置未变化则跳过
             if (currentPoint == lastDrawPoint) return;
 
-            // 计算受影响区域（包含当前点和上一点）
             int minX = Math.Min(currentX, lastDrawPoint.X);
             int maxX = Math.Max(currentX, lastDrawPoint.X);
             int minY = Math.Min(currentY, lastDrawPoint.Y);
             int maxY = Math.Max(currentY, lastDrawPoint.Y);
 
-            // 恢复区域到初始状态
             RestoreRegion(minX, minY, maxX, maxY);
 
-            // 绘制从起始点到当前点的直线
             DrawLine(lastDrawPoint, currentPoint, currentDrawMode);
 
-            // 更新最后绘制点
             lastDrawPoint = currentPoint;
 
-            // 扩展绘制区域
             lastDrawRegion = Rectangle.Union(lastDrawRegion,
                 new Rectangle(minX, minY, maxX - minX + 1, maxY - minY + 1));
         }
 
-        // 恢复区域到初始状态
         private void RestoreRegion(int minX, int minY, int maxX, int maxY)
         {
             for (int y = minY; y <= maxY; y++)
@@ -1162,7 +1098,6 @@ namespace SSD1306
 
             isDrawing = false;
 
-            // 确保处理最后的位置
             if (e.Button == MouseButtons.Left)
             {
                 var (x, y) = GetPixelPosition(e.X, e.Y);
@@ -1176,13 +1111,11 @@ namespace SSD1306
             {
                 if (DrawingCompleted != null)
                 {
-                    // 触发绘制完成事件
                     await DrawingCompleted?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
 
-        // 绘制直线（直接设置状态）
         private void DrawLine(Point start, Point end, bool state)
         {
             int dx = Math.Abs(end.X - start.X);
@@ -1213,26 +1146,21 @@ namespace SSD1306
             }
         }
 
-        // 设置像素并更新显示
         private async void SetPixel(int x, int y, bool state)
         {
             if (x < 0 || x >= Columns || y < 0 || y >= Rows)
                 return;
 
-            // 只更新有变化的像素
             if (PixelData[y, x] != state)
             {
-                // 更新像素状态
                 PixelData[y, x] = state;
 
-                // 更新缓冲
                 UpdateBuffer(x, y);
 
                 if (SystemStatus.CurrentStatus >= SystemStatus.Status.Connected)
                 {
                     if(PixelChanged != null)
                     {
-                        // 触发事件
                         await PixelChanged?.Invoke(this, new PixelChangedEventArgs(x, y, state));
                     }
                 }
@@ -1270,8 +1198,6 @@ namespace SSD1306
             }
             base.Dispose(disposing);
         }
-
-        // 获取整个像素数据作为字节数组
         public byte[] GetPixelData()
         {
             int byteWidth = (Columns + 7) / 8;
@@ -1295,8 +1221,8 @@ namespace SSD1306
 
         public byte[] GetSSD1306Data()
         {
-            int pages = Rows / 8; // 64/8=8页
-            byte[] result = new byte[Columns * pages]; // 128×8=1024
+            int pages = Rows / 8;
+            byte[] result = new byte[Columns * pages];
 
             for (int page = 0; page < pages; page++)
             {
@@ -1308,7 +1234,7 @@ namespace SSD1306
                         int y = page * 8 + bit;
                         if (PixelData[y, x])
                         {
-                            value |= (byte)(1 << bit); // bit0=页顶
+                            value |= (byte)(1 << bit);
                         }
                     }
                     result[page * Columns + x] = value;
@@ -1324,8 +1250,6 @@ namespace SSD1306
             return value;
         }
     }
-
-    // 像素变化事件参数
     public class PixelChangedEventArgs : EventArgs
     {
         public int X { get; }
@@ -1423,7 +1347,6 @@ namespace SSD1306
         {
             if (_originalImage == null) return;
 
-            // 创建缩放后的图像
             int newWidth = (int)(_originalImage.Width * _zoomFactor);
             int newHeight = (int)(_originalImage.Height * _zoomFactor);
             Bitmap scaledImage = new Bitmap(newWidth, newHeight);
@@ -1434,12 +1357,10 @@ namespace SSD1306
                 g.DrawImage(_originalImage, 0, 0, newWidth, newHeight);
             }
 
-            // 应用二值化
             Bitmap processedImage = _isBinarized ?
                 BinarizeImage(scaledImage) :
                 scaledImage;
 
-            // 更新显示的图像
             this.Image?.Dispose();
             this.Image = processedImage;
             this.Visible = true;
@@ -1501,11 +1422,9 @@ namespace SSD1306
 
             Point parentPoint = Parent.PointToClient(currentMouse);
 
-            // 计算目标位置
             int targetX = parentPoint.X - Width / 2;
             int targetY = parentPoint.Y - Height / 2;
 
-            // 舍入到最近的5的倍数
             targetX = (int)(Math.Round(targetX / 5.0) * 5);
             targetY = (int)(Math.Round(targetY / 5.0) * 5);
 
@@ -1543,7 +1462,6 @@ namespace SSD1306
         public void TextFontChanged(string FontName, int Size)
         {
             Font newFont = new Font(FontName, Size);
-            // 将旧字体释放（如果需要）
             if (TextFont != null)
             {
                 TextFont.Dispose();
@@ -1566,12 +1484,10 @@ namespace SSD1306
         private bool _disposed = false;
         public Bitmap PreviewBitmap { get; private set; }
         public int[,] PixelMatrix { get; private set; }
-
-        // 添加可配置参数（通过公共属性）
-        public int Threshold { get; set; } = 128;       // 默认阈值
-        public bool Invert { get; set; } = false;        // 默认不反色
-        public Size TargetSize { get; set; } = Size.Empty; // 目标尺寸（空表示不缩放）
-        public float Scale { get; set; } = 1; //（缩放）
+        public int Threshold { get; set; } = 128;
+        public bool Invert { get; set; } = false;
+        public Size TargetSize { get; set; } = Size.Empty;
+        public float Scale { get; set; } = 1;
 
 
         public void ConvertTextToBitmap(string text, Font font)
@@ -1581,45 +1497,36 @@ namespace SSD1306
                 throw new ArgumentException("输入文本不能为空");
             }
 
-            // 释放之前的资源
             DisposeBitmap();
             PixelMatrix = null;
 
-            // 创建临时位图测量文本尺寸
             using (Bitmap tempBmp = new Bitmap(1, 1))
             using (Graphics g = Graphics.FromImage(tempBmp))
             {
                 SizeF textSize = g.MeasureString(text, font);
 
-                // 创建目标位图
                 int width = (int)Math.Ceiling(textSize.Width);
                 int height = (int)Math.Ceiling(textSize.Height);
 
-                // 确保最小尺寸
                 width = Math.Max(width, 1);
                 height = Math.Max(height, 1);
 
                 using (Bitmap textBmp = new Bitmap(width, height))
                 using (Graphics textG = Graphics.FromImage(textBmp))
                 {
-                    // 设置高质量绘制
                     textG.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                     textG.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 
-                    // 绘制文本
                     textG.Clear(Color.White);
                     textG.DrawString(text, font, Brushes.Black, PointF.Empty);
-                    // 如果需要缩放
                     Bitmap processedBmp = textBmp;
                     if (!TargetSize.IsEmpty && (TargetSize.Width > 0 && TargetSize.Height > 0))
                     {
                         processedBmp = new Bitmap(textBmp, TargetSize);
                     }
 
-                    // 处理位图（二值化和缩放）
                     ProcessBitmap(processedBmp);
 
-                    // 如果创建了缩放后的位图，释放临时资源
                     if (processedBmp != textBmp)
                     {
                         processedBmp.Dispose();
@@ -1633,10 +1540,8 @@ namespace SSD1306
             int width = sourceBmp.Width;
             int height = sourceBmp.Height;
 
-            // 创建点阵数据
             PixelMatrix = new int[height, width];
 
-            // 锁定位图数据
             BitmapData bmpData = sourceBmp.LockBits(
                 new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadOnly,
@@ -1644,29 +1549,23 @@ namespace SSD1306
 
             try
             {
-                // 获取位图数据
                 byte[] pixelBuffer = new byte[bmpData.Stride * bmpData.Height];
                 Marshal.Copy(bmpData.Scan0, pixelBuffer, 0, pixelBuffer.Length);
 
-                // 处理每个像素
                 for (int y = 0; y < height; y++)
                 {
                     for (int x = 0; x < width; x++)
                     {
                         int index = y * bmpData.Stride + x * 4;
 
-                        // 获取颜色分量
                         byte blue = pixelBuffer[index];
                         byte green = pixelBuffer[index + 1];
                         byte red = pixelBuffer[index + 2];
 
-                        // 计算灰度值
                         int gray = (red * 299 + green * 587 + blue * 114) / 1000;
 
-                        // 二值化处理
                         int value = (gray < Threshold) ? 1 : 0;
 
-                        // 反色处理
                         if (Invert) value = 1 - value;
 
                         PixelMatrix[y, x] = value;
@@ -1675,20 +1574,15 @@ namespace SSD1306
             }
             finally
             {
-                // 确保解锁位图
                 sourceBmp.UnlockBits(bmpData);
             }
 
-            // 创建预览位图
             CreatePreviewBitmap(width, height);
         }
 
         private void CreatePreviewBitmap(int width, int height)
         {
-            // 释放之前的预览位图
             DisposeBitmap();
-
-            // 创建预览位图（倍数放大）
             PreviewBitmap = new Bitmap((int)(width * Scale), (int)(height * Scale));
 
             using (Graphics g = Graphics.FromImage(PreviewBitmap))
@@ -1733,7 +1627,6 @@ namespace SSD1306
             {
                 if (disposing)
                 {
-                    // 释放托管资源
                     DisposeBitmap();
                     PixelMatrix = null;
                 }

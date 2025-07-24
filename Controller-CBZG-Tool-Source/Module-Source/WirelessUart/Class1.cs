@@ -25,7 +25,7 @@ namespace ModNamespace
             stream = _stream;
             MainForm = new Form1(stream,this);
             MainForm.Owner = form;
-            MainForm.ShowDialog(); // 在已有的应用程序中显示窗体
+            MainForm.ShowDialog();
             ModExit();
             return true;
         }

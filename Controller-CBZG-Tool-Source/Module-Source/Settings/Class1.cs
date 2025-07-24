@@ -28,11 +28,11 @@ namespace ModNamespace
             MainForm.Owner = form;
             if (Application.OpenForms.Count == 0)
             {
-                Application.Run(MainForm); // 启动窗体  
+                Application.Run(MainForm);
             }
             else
             {
-                MainForm.ShowDialog(); // 在已有的应用程序中显示窗体  
+                MainForm.ShowDialog();
             }
             return true;
         }

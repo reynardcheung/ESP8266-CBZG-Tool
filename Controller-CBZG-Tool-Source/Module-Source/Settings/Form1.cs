@@ -21,7 +21,6 @@ namespace Settings
             InitializeComponent();
             stream = _stream;
             InitializeCustomComponents();
-            // 添加窗口大小改变事件
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,7 +30,6 @@ namespace Settings
 
         private void InitializeCustomComponents()
         {
-            // 主容器配置
             mainPanel = new FlowLayoutPanel
             {
                 Name = "mainPanel",
@@ -43,7 +41,6 @@ namespace Settings
                 Padding = new Padding(15)
             };
 
-            // 工具栏配置
             var toolPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -138,11 +135,9 @@ namespace Settings
 
         private void AddSettingControl(TableLayoutPanel panel, JsonProperty setting, ref int rowIndex)
         {
-            // 每行两列控件（标签+输入框）
             int actualRow = rowIndex / 2;
             if (rowIndex % 2 == 0) panel.RowCount++;
 
-            // 创建标签
             var lbl = new Label
             {
                 Text = $"{setting.Name}:",
@@ -152,7 +147,6 @@ namespace Settings
                 Font = new Font("微软雅黑", 9f)
             };
 
-            // 创建输入框
             var txt = new TextBox
             {
                 Anchor = AnchorStyles.Left | AnchorStyles.Top,
@@ -162,10 +156,8 @@ namespace Settings
                 Font = new Font("微软雅黑", 9f)
             };
 
-            // 设置初始值
             SetControlValue(txt, setting.Value);
 
-            // 添加验证
             if (txt.Tag.ToString() == "number")
             {
                 txt.KeyPress += (s, e) =>
@@ -175,7 +167,6 @@ namespace Settings
                 };
             }
 
-            // 添加控件到面板
             int col = (rowIndex % 2) * 2;
             panel.Controls.Add(lbl, col, actualRow);
             panel.Controls.Add(txt, col + 1, actualRow);
@@ -249,7 +240,6 @@ namespace Settings
                 var section = new JsonObject();
                 TableLayoutPanel? panel = null;
 
-                // 找到TableLayoutPanel控件
                 foreach (Control ctrl in groupBox.Controls)
                 {
                     if (ctrl is TableLayoutPanel tlp)
@@ -308,14 +298,12 @@ namespace Settings
             await stream.WriteAsync(CommandBytes, 0, CommandBytes.Length);
             using (var cts = new CancellationTokenSource())
             {
-                cts.CancelAfter(10000); // 设置超时时间  
+                cts.CancelAfter(10000);  
 
                 try
                 {
-                    // 使用 Task.Run 来确保可以取消操作  
                     ReadNum = await Task.Run(() =>
                     {
-                        // 这里的 ReadAsync 是一个可能会阻塞的操作  
                         return stream.ReadAsync(ReadBytes, 0, ReadBytes.Length, cts.Token).Result;
                     }, cts.Token);
                 }
@@ -327,7 +315,6 @@ namespace Settings
                 }
                 catch (Exception ex)
                 {
-                    // 处理其他异常  
                     MessageBox.Show($"错误: 读取数据时发生错误{ex}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                     //throw new Exception("读取数据时发生错误。", ex);
@@ -348,14 +335,12 @@ namespace Settings
             await stream.WriteAsync(CommandBytes, 0, CommandBytes.Length);
             using (var cts = new CancellationTokenSource())
             {
-                cts.CancelAfter(10000); // 设置超时时间  
+                cts.CancelAfter(10000);
 
                 try
                 {
-                    // 使用 Task.Run 来确保可以取消操作  
                     await Task.Run(() =>
                     {
-                        // 这里的 ReadAsync 是一个可能会阻塞的操作  
                         return stream.ReadAsync(ReadBytes, 0, ReadBytes.Length, cts.Token).Result;
                     }, cts.Token);
                 }
@@ -367,7 +352,6 @@ namespace Settings
                 }
                 catch (Exception ex)
                 {
-                    // 处理其他异常  
                     MessageBox.Show($"错误: 读取数据时发生错误{ex}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                     //throw new Exception("读取数据时发生错误。", ex);
@@ -383,14 +367,12 @@ namespace Settings
             await stream.WriteAsync(ConfigBytes, 0, ConfigBytes.Length);
             using (var cts = new CancellationTokenSource())
             {
-                cts.CancelAfter(10000); // 设置超时时间  
+                cts.CancelAfter(10000);
 
                 try
                 {
-                    // 使用 Task.Run 来确保可以取消操作  
                     await Task.Run(() =>
                     {
-                        // 这里的 ReadAsync 是一个可能会阻塞的操作  
                         return stream.ReadAsync(ReadBytes, 0, ReadBytes.Length, cts.Token).Result;
                     }, cts.Token);
                 }
@@ -402,7 +384,6 @@ namespace Settings
                 }
                 catch (Exception ex)
                 {
-                    // 处理其他异常  
                     MessageBox.Show($"错误: 读取数据时发生错误{ex}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                     //throw new Exception("读取数据时发生错误。", ex);

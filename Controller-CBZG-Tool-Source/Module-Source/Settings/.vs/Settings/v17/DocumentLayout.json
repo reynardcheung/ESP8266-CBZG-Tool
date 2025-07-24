@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Project\\Settings\\",
+  "WorkspaceRootPath": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Settings\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|d:\\project\\settings\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|e:\\esp8266\\msys32\\home\\a\\esp\\esp8266-cbzg-tool\\controller-cbzg-tool-source\\module-source\\settings\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|solutionrelative:class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|D:\\Project\\Settings\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|e:\\esp8266\\msys32\\home\\a\\esp\\esp8266-cbzg-tool\\controller-cbzg-tool-source\\module-source\\settings\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|d:\\project\\settings\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Settings\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EAF72C55-5897-4090-95BA-DDE5924EAB49}|Settings.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,38 +30,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\Project\\Settings\\Form1.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Settings\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Project\\Settings\\Form1.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Settings\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAYwGkAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAHIBAAAAAAAAAAAWwHoBAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-11T10:52:11.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "D:\\Project\\Settings\\Form1.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Settings\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\Project\\Settings\\Form1.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "Form1.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T10:49:29.696Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
+              "WhenOpened": "2025-05-11T10:49:29.696Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\Project\\Settings\\Class1.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Settings\\Class1.cs",
               "RelativeDocumentMoniker": "Class1.cs",
-              "ToolTip": "D:\\Project\\Settings\\Class1.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Settings\\Class1.cs",
               "RelativeToolTip": "Class1.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAIA7wBIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-11T10:48:40.337Z",
               "EditorCaption": ""

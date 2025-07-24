@@ -201,10 +201,8 @@ namespace WirelessUart
 
         public void LoadAvailablePorts()
         {
-            // 清空现有项  
             this.COMComboBox.Items.Clear();
 
-            // 获取可用串口  
             string[] ports = SerialPort.GetPortNames();
             
             if(ports.Length == 0 ) 
@@ -212,14 +210,12 @@ namespace WirelessUart
                 MessageBox.Show("警告: 无可用端口", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
-            // 将每个串口添加到ComboBox中  
+
             foreach (string port in ports)
             {
                 COMComboBox.Items.Add(port);
             }
 
-            // 可选：选择第一个串口  
             if (COMComboBox.Items.Count > 0)
             {
                 COMComboBox.SelectedIndex = 0;
@@ -299,15 +295,12 @@ namespace WirelessUart
 
         private void ConditionOutputListShowFlush()
         {
-            // 绑定数据源
             dataGridView1.DataSource = ConditionOutputDataBase.DataBase;
 
-            // 设置只显示 InputValue 和 OutputValue 两列
             dataGridView1.Columns["Priority"].Visible = true;
             dataGridView1.Columns["InputValue"].Visible = true;
             dataGridView1.Columns["OutputValue"].Visible = true;
 
-            // 隐藏不想显示的列
             dataGridView1.Columns["InputHexValue"].Visible = false;
             dataGridView1.Columns["OutputHexValue"].Visible = false;
             dataGridView1.Columns["IsInputHex"].Visible = false;
@@ -493,26 +486,22 @@ namespace WirelessUart
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            // 先判断是否有选中行
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show($"错误: 至少选择一行", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // 因为要删除集合中的对象，避免修改集合时出现问题，先缓存要删除的对象列表
             List<ConditionOutput> itemsToRemove = new List<ConditionOutput>();
 
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                // 绑定的对象在 DataBoundItem 属性中
                 if (row.DataBoundItem is ConditionOutput item)
                 {
                     itemsToRemove.Add(item);
                 }
             }
 
-            // 从数据库集合删除
             foreach (var item in itemsToRemove)
             {
                 ConditionOutputDataBase.DataBase.Remove(item);
@@ -607,9 +596,9 @@ namespace WirelessUart
 
         private void ConditionOutputDelay_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '\b')//这是允许输入退格键
+            if (e.KeyChar != '\b')
             {
-                if ((e.KeyChar < '0') || (e.KeyChar > '9'))//这是允许输入0-9数字
+                if ((e.KeyChar < '0') || (e.KeyChar > '9'))
                 {
                     e.Handled = true;
                 }
@@ -786,21 +775,18 @@ namespace WirelessUart
         {
             var config = LoadConfig();
 
-            // 遍历所有可能的1-9编号
             for (int i = 1; i <= 9; i++)
             {
                 if (config.Items.ContainsKey(i))
                 {
                     var item = config.Items[i];
 
-                    // 根据编号找到对应的TextBox，并设置内容
                     if (this.Controls.Find($"QuickSendTextBox{i}", true)
                                     .FirstOrDefault() is TextBox textBox)
                     {
                         textBox.Text = item.Text;
                     }
 
-                    // 找到对应的CheckBox，并设置选中状态
                     if (this.Controls.Find($"QuickSendHexCheckBox{i}", true)
                                     .FirstOrDefault() is CheckBox checkBox)
                     {
@@ -861,7 +847,6 @@ namespace WirelessUart
 
         private void EditConditionButton_Click(object sender, EventArgs e)
         {
-            // 先判断是否有选中行
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show($"错误: 未选择修改项", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -879,7 +864,6 @@ namespace WirelessUart
 
         private void ReadConditionButton_Click(object sender, EventArgs e)
         {
-            // 先判断是否有选中行
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show($"错误: 未选择修改项", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -896,19 +880,13 @@ namespace WirelessUart
 
         private void TextSaveButton_Click(object sender, EventArgs e)
         {
-            // 设置文件类型过滤器，比如文本文件
             saveFileDialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
 
-            // 设置默认文件名（可选）
             saveFileDialog1.FileName = "SaveFile.txt";
 
-            // 弹出保存对话框
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // 获取用户选择的文件路径
                 string filePath = saveFileDialog1.FileName;
-
-                // 示例：将一些文本保存到文件
                 string content = RXrichTextBox.Text;
                 File.WriteAllText(filePath, content);
             }
@@ -916,19 +894,11 @@ namespace WirelessUart
 
         private void HexSaveButton_Click(object sender, EventArgs e)
         {
-            // 设置文件类型过滤器，比如文本文件
             saveFileDialog1.Filter = "Text files (*.bin)|*.bin|All files (*.*)|*.*";
-
-            // 设置默认文件名（可选）
             saveFileDialog1.FileName = "SaveFile.bin";
-
-            // 弹出保存对话框
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // 获取用户选择的文件路径
                 string filePath = saveFileDialog1.FileName;
-
-                // 示例：将一些文本保存到文件
                 string content = RXrichTextBox.Text;
                 File.WriteAllText(filePath, content);
             }
@@ -951,19 +921,16 @@ namespace WirelessUart
                 return;
             }
 
-            // 交换 Priority
             ConditionOutput obj = ConditionOutputDataBase.DataBase[rowIndex];
             ConditionOutput obj_up = ConditionOutputDataBase.DataBase[upIndex];
 
             (obj_up.Priority, obj.Priority) = (obj.Priority, obj_up.Priority);
 
-            // 交换数据源中的对象位置，实现顺序的调换
             ConditionOutput tmp = ConditionOutputDataBase.DataBase[upIndex];
             ConditionOutputDataBase.DataBase[upIndex] = obj;
             ConditionOutputDataBase.DataBase[rowIndex] = tmp;
 
-            // 刷新显示
-            dataGridView1.ClearSelection(); // 先清除所有选择
+            dataGridView1.ClearSelection();
             dataGridView1.Rows[upIndex].Selected = true;
             ConditionOutputDataBase.SaveToFile();
             ConditionOutputListShowFlush();
@@ -986,19 +953,16 @@ namespace WirelessUart
                 return;
             }
 
-            // 交换 Priority
             ConditionOutput obj = ConditionOutputDataBase.DataBase[rowIndex];
             ConditionOutput obj_down = ConditionOutputDataBase.DataBase[downIndex];
 
             (obj_down.Priority, obj.Priority) = (obj.Priority, obj_down.Priority);
 
-            // 交换在数据源中的位置
             ConditionOutput tmp = ConditionOutputDataBase.DataBase[downIndex];
             ConditionOutputDataBase.DataBase[downIndex] = obj;
             ConditionOutputDataBase.DataBase[rowIndex] = tmp;
 
-            // 刷新显示
-            dataGridView1.ClearSelection(); // 先清除所有选择
+            dataGridView1.ClearSelection();
             dataGridView1.Rows[downIndex].Selected = true;
             ConditionOutputDataBase.SaveToFile();
             ConditionOutputListShowFlush();
@@ -1129,13 +1093,11 @@ namespace WirelessUart
             if (string.IsNullOrWhiteSpace(input))
                 return Array.Empty<byte>();
 
-            // 检测是否包含 "0x" 或 "0X" 前缀格式
             if (input.IndexOf("0x", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 return ParseHexWithPrefix(input);
             }
 
-            // 标准十六进制格式处理
             return ParseStandardHex(input);
         }
 
@@ -1167,27 +1129,24 @@ namespace WirelessUart
 
             while (index < input.Length)
             {
-                // 检查 "0x" 或 "0X" 前缀
                 if (index < input.Length - 2 &&
                     input[index] == '0' &&
                     (input[index + 1] == 'x' || input[index + 1] == 'X') &&
                     IsHexChar(input[index + 2]))
                 {
-                    index += 2; // 跳过 "0x" 前缀
+                    index += 2;
 
-                    // 收集连续的十六进制字符
                     int end = index;
                     while (end < input.Length && IsHexChar(input[end])) end++;
 
                     string hexBlock = input.Substring(index, end - index);
-                    index = end; // 更新索引
+                    index = end;
 
-                    // 处理十六进制块
                     ProcessHexBlock(hexBlock, result);
                 }
                 else
                 {
-                    index++; // 跳过无效字符
+                    index++;
                 }
             }
 
@@ -1198,16 +1157,13 @@ namespace WirelessUart
         {
             int charCount = hexBlock.Length;
 
-            // 处理奇数长度的情况
             if (charCount % 2 != 0)
             {
-                // 尝试将第一个字符作为高位（前面补0）
                 result.Add((byte)CharToNibble(hexBlock[0]));
                 hexBlock = hexBlock.Substring(1);
                 charCount = hexBlock.Length;
             }
 
-            // 处理剩余字符
             for (int i = 0; i < charCount; i += 2)
             {
                 int highNibble = CharToNibble(hexBlock[i]);
@@ -1658,7 +1614,7 @@ namespace WirelessUart
         {
             Console.WriteLine($"SerialRecvTimestamp:{GetCurrentTimestamp()}");
             SerialPort sp = (SerialPort)sender;
-            string data = sp.ReadExisting(); // 读取所有可用数据
+            string data = sp.ReadExisting();
             if (isRunning)
             {
                 try
@@ -1676,7 +1632,6 @@ namespace WirelessUart
         {
             return Task.Run(() =>
             {
-                // 这是同步写方法
                 COM.Write(data, index, count);
             });
         }
@@ -1774,7 +1729,6 @@ namespace WirelessUart
 
         public static void Add(ConditionOutput ConditionOutputObj)
         {
-            // 检查是否已存在相同模式
             bool exists = DataBase.Any(item =>
                 item.InputHexValue.SequenceEqual(ConditionOutputObj.InputHexValue));
 
@@ -1794,16 +1748,14 @@ namespace WirelessUart
 
         public static ConditionOutput Search(byte[] Bytes,int Length)
         {
-            // 1. 按长度降序->优先级降序排序
             var sortedList = DataBase
                 .OrderByDescending(item => item.InputHexValue.Length)
                 .ThenByDescending(item => item.Priority ?? int.MinValue)
                 .ToList();
 
-            // 2. 使用精确匹配算法
             foreach (var item in sortedList)
             {
-                if (IsExactMatch(Bytes,Length,item.InputHexValue))  // 改为精确匹配
+                if (IsExactMatch(Bytes,Length,item.InputHexValue))
                 {
                     return item;
                 }
@@ -1811,7 +1763,6 @@ namespace WirelessUart
             return null;
         }
 
-        // 新增精确匹配方法
         private static bool IsExactMatch(byte[] Source,int SourceLength, byte[] Pattern)
         {
             if (Source == null || Pattern.Length == 0)

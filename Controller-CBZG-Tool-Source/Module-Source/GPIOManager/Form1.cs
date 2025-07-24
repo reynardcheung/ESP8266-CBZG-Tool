@@ -450,7 +450,6 @@ namespace GPIOManager
             _statusChanged?.Invoke(null, EventArgs.Empty);
         }
 
-        // 订阅管理方法
         public static bool IsSubscribed(EventHandler handler)
         {
             lock (_handlers)
@@ -471,7 +470,7 @@ namespace GPIOManager
 
             if (disposing)
             {
-                // 释放托管资源
+
                 lock (_handlers)
                 {
                     foreach (var handler in _handlers)
@@ -482,7 +481,6 @@ namespace GPIOManager
                 }
             }
 
-            // 这里没有非托管资源需要释放
             _disposed = true;
         }
 

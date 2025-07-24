@@ -49,14 +49,13 @@ namespace I2C_Tool
             DevComboBox.DataSource = I2C_Device_Group.I2C_Devices;
 
             WaveList.DataSource = Wave_Group.WaveUnits;
-            WaveList.DisplayMember = "WaveName"; // 显示WaveName
+            WaveList.DisplayMember = "WaveName";
             WaveList.ValueMember = "WaveName";
 
             ColorBox.SelectedIndex = 0;
 
             I2C_Register_Group.LoadRegistersFromJson();
 
-            // 绑定到 DataGridView
             RegisterGridView.DataSource = I2C_Register_Group.I2C_Registers;
             RegisterGridView.Invalidate();
         }
@@ -596,7 +595,6 @@ namespace I2C_Tool
             Wave_Group.WaveUnits.Remove(Wave);
             MessageBox.Show($"提示: 已删除波形 {Name}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // 刷新波形选择框
             RefreshWaveformComboBox();
 
         }
@@ -614,7 +612,6 @@ namespace I2C_Tool
             }
         }
 
-        // 刷新寄存器位ComboBox
         private void RefreshRegisterBits()
         {
             WaveDataHighBit.Items.Clear();
@@ -639,13 +636,11 @@ namespace I2C_Tool
             }
         }
 
-        // 刷新波形ComboBox
         private void RefreshWaveformComboBox()
         {
 
         }
 
-        // 寄存器刷新事件处理
         private void OnRegistersRefreshed(object sender, EventArgs e)
         {
             if (RegisterGridView.InvokeRequired)
@@ -757,7 +752,7 @@ namespace I2C_Tool
         public string Name { get; set; }
         public Color Color { get; set; }
 
-        public override string ToString() => Name; // 用于默认文本显示
+        public override string ToString() => Name;
     }
 
     public class ColorComboBox : System.Windows.Forms.ComboBox
@@ -778,24 +773,22 @@ namespace I2C_Tool
 
         public void AddColor(string name, Color color)
         {
-            Items.Add(new ColorItem { Name = name, Color = color }); // 仅存储到Items
+            Items.Add(new ColorItem { Name = name, Color = color });
         }
 
         private void ColorComboBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
 
-            var item = (ColorItem)Items[e.Index]; // 直接从Items获取对象
+            var item = (ColorItem)Items[e.Index];
             e.DrawBackground();
 
-            // 绘制颜色块
             var rect = new Rectangle(e.Bounds.Left + 2, e.Bounds.Top + 2, 20, e.Bounds.Height - 4);
             using (var brush = new SolidBrush(item.Color))
             {
                 e.Graphics.FillRectangle(brush, rect);
             }
 
-            // 绘制名称
             e.Graphics.DrawString(item.Name, e.Font, Brushes.Black, e.Bounds.Left + 25, e.Bounds.Top);
         }
 
@@ -818,57 +811,44 @@ namespace I2C_Tool
 
     public class WavePictureBox : PictureBox
     {
-        // 常量定义
         private const int WIDTH = 500;
         private const int HEIGHT = 420;
-        private const int ZERO_Y = HEIGHT / 2; // 零点Y坐标 (210)
+        private const int ZERO_Y = HEIGHT / 2;
 
-        // 配置字段
-        private double _currentTimeBase = 1000; // 默认时基(ms)
-        private double _verticalScale = 10;     // 合理的默认垂直缩放 (10单位/像素)
+        private double _currentTimeBase = 1000;
+        private double _verticalScale = 10;
 
-        // 数据存储
         private readonly Dictionary<WaveUnit, Queue<DataPoint>> _waveData =
             new Dictionary<WaveUnit, Queue<DataPoint>>();
         private readonly Stopwatch _stopwatch = new Stopwatch();
 
-        // 线程同步对象
         private readonly object _renderLock = new object();
 
-        // 鼠标交互状态
         private bool _isDragging;
         private int _dragX;
         private int _dragY;
 
-        // 位图资源
         private Bitmap _bitmap;
         private Graphics _graphics;
 
-        // 调试信息
         private double _lastRenderTime;
 
         public WavePictureBox()
         {
-            // 固定大小
             Size = new Size(WIDTH, HEIGHT);
             BackColor = Color.White;
 
-            // 初始化位图和图形对象
             InitializeBitmap();
 
-            // 订阅波形列表变化
             Wave_Group.WaveUnits.ListChanged += WaveUnits_ListChanged;
 
-            // 初始化现有波形
             foreach (var wave in Wave_Group.WaveUnits)
             {
                 AddWaveUnit(wave);
             }
 
-            // 启动计时器
             _stopwatch.Start();
 
-            // 设置双缓冲
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
                          ControlStyles.UserPaint |
@@ -985,15 +965,14 @@ namespace I2C_Tool
             {
                 queue.Enqueue(new DataPoint(timeMs, currentValue));
 
-                // 保持50个数据点
                 while (queue.Count > 50)
                 {
                     queue.Dequeue();
                 }
             }
 
-            // 限制渲染频率（最大30FPS）
-            if ((timeMs - _lastRenderTime) > 33) // 约30FPS
+            //限制渲染频率
+            if ((timeMs - _lastRenderTime) > 33)
             {
                 Render();
                 _lastRenderTime = timeMs;
@@ -1022,7 +1001,6 @@ namespace I2C_Tool
         #region 渲染绘制
         private void Render()
         {
-            // 使用BeginInvoke确保在UI线程执行绘图
             if (this.InvokeRequired)
             {
                 this.BeginInvoke(new Action(Render));
@@ -1033,32 +1011,25 @@ namespace I2C_Tool
             {
                 try
                 {
-
-                    // 确保资源有效
                     if (_graphics == null || _bitmap == null)
                     {
                         InitializeBitmap();
                     }
 
-                    // 清除背景
                     _graphics.Clear(Color.White);
 
-                    // 绘制坐标轴
                     DrawAxes();
 
-                    // 绘制所有波形
                     foreach (var kvp in _waveData)
                     {
                         DrawWaveform(kvp.Key, kvp.Value);
                     }
 
-                    // 绘制拖动线
                     if (_isDragging)
                     {
                         DrawDragLine();
                     }
 
-                    // 刷新显示
                     UpdateImageSafely(_bitmap);
                 }
                 catch (Exception ex)
@@ -1076,7 +1047,6 @@ namespace I2C_Tool
                 return;
             }
 
-            // 创建临时副本避免闪烁
             Bitmap temp = new Bitmap(image);
             Image old = this.Image;
             this.Image = temp;
@@ -1100,84 +1070,65 @@ namespace I2C_Tool
         {
             using (var axisPen = new Pen(Color.Black, 2))
             {
-                // 纵轴 (左侧)
+
                 _graphics.DrawLine(axisPen, 0, 0, 0, HEIGHT);
 
-                // 横轴 (底部)
                 _graphics.DrawLine(axisPen, 0, HEIGHT - 1, WIDTH, HEIGHT - 1);
 
-                // 零点线
                 using (var zeroPen = new Pen(Color.LightGray))
                 {
                     _graphics.DrawLine(zeroPen, 0, ZERO_Y, WIDTH, ZERO_Y);
                 }
 
-                // 网格线
                 using (var gridPen = new Pen(Color.LightGray, 1) { DashStyle = System.Drawing.Drawing2D.DashStyle.Dot })
                 {
-                    // 计算垂直刻度值
                     double maxValue = (HEIGHT / 2) * _verticalScale;
                     double minValue = -maxValue;
 
-                    // 计算合理的刻度间隔
                     double valueRange = maxValue - minValue;
                     double step = CalculateOptimalStep(valueRange, 8);
 
-                    // 绘制水平线并添加数值
                     for (double value = minValue; value <= maxValue; value += step)
                     {
-                        // 计算Y坐标
                         float y = ZERO_Y - (float)(value / _verticalScale);
 
-                        // 限制在显示范围内
                         if (y < 0 || y >= HEIGHT) continue;
 
-                        // 绘制水平网格线
                         _graphics.DrawLine(gridPen, 0, y, WIDTH, y);
 
-                        // 绘制左侧数值标记
                         string valueText = FormatValue(value);
                         SizeF textSize = _graphics.MeasureString(valueText, Font);
 
-                        // 绘制背景框增强可读性
                         _graphics.FillRectangle(Brushes.White, 5, y - textSize.Height / 2, textSize.Width + 5, textSize.Height);
 
-                        // 绘制数值文本
                         _graphics.DrawString(valueText, Font, Brushes.Black, 5, y - textSize.Height / 2);
                     }
 
-                    // 绘制垂直线
                     for (int x = 50; x < WIDTH; x += 50)
                     {
                         _graphics.DrawLine(gridPen, x, 0, x, HEIGHT);
 
-                        // 绘制底部时间标记
-                        if (x % 100 == 0) // 每100像素显示时间
+                        if (x % 100 == 0)
                         {
                             double timeMs = (x * _currentTimeBase) / WIDTH;
                             string timeText = $"{timeMs:0}ms";
                             SizeF textSize = _graphics.MeasureString(timeText, Font);
 
-                            // 确保文本不超出边界
                             float textX = Math.Max(0, Math.Min(WIDTH - textSize.Width, x - textSize.Width / 2));
 
-                            // 绘制背景框
                             _graphics.FillRectangle(Brushes.White, textX, HEIGHT - textSize.Height - 5,
                                                   textSize.Width, textSize.Height);
 
-                            // 绘制时间文本
                             _graphics.DrawString(timeText, Font, Brushes.Black, textX, HEIGHT - textSize.Height - 15);
                         }
                     }
                 }
             }
 
-            // 绘制坐标轴标签
             _graphics.DrawString("时间 (ms)", Font, Brushes.Black, WIDTH / 2 - 30, HEIGHT - 25);
             _graphics.DrawString("值", Font, Brushes.Black, 10, 5);
         }
 
-        // 计算最优刻度步长
         private double CalculateOptimalStep(double range, int maxTicks)
         {
             double unroundedStep = range / maxTicks;
@@ -1186,10 +1137,8 @@ namespace I2C_Tool
             return Math.Ceiling(unroundedStep / power) * power;
         }
 
-        // 格式化数值显示
         private string FormatValue(double value)
         {
-            // 根据值的大小选择合适的格式
             if (Math.Abs(value) >= 1000)
                 return $"{value / 1000:0.#}k";
 
@@ -1206,19 +1155,16 @@ namespace I2C_Tool
         {
             if (data.Count == 0) return;
 
-            // 复制数据避免长时间锁定队列
             DataPoint[] points;
             lock (data)
             {
                 points = data.ToArray();
             }
 
-            // 获取数据的时间范围
             double minTime = points.Min(p => p.TimeMs);
             double maxTime = points.Max(p => p.TimeMs);
             double timeRange = maxTime - minTime;
 
-            // 如果所有点时间相同，使用默认时间范围
             if (timeRange <= 0) timeRange = _currentTimeBase;
 
             using (var wavePen = new Pen(wave.WaveColor, 2))
@@ -1229,29 +1175,23 @@ namespace I2C_Tool
                 {
                     var point = points[i];
 
-                    // 跳过null值
                     if (!point.Value.HasValue)
                     {
                         lastPoint = null;
                         continue;
                     }
 
-                    // 正确计算X坐标
                     float x = CalculateX(point.TimeMs, minTime, timeRange);
 
-                    // 计算y坐标
                     float y = CalculateY(point.Value.Value);
 
-                    // 限制在显示范围内
                     x = Math.Max(0, Math.Min(WIDTH - 1, x));
                     y = Math.Max(0, Math.Min(HEIGHT - 1, y));
 
                     var currentPoint = new PointF(x, y);
 
-                    // 绘制数据点（调试用）
                     _graphics.FillEllipse(Brushes.Red, x - 2, y - 2, 4, 4);
 
-                    // 连接连续点
                     if (lastPoint.HasValue)
                     {
                         _graphics.DrawLine(wavePen, lastPoint.Value, currentPoint);
@@ -1264,20 +1204,16 @@ namespace I2C_Tool
 
         private float CalculateX(double pointTime, double minTime, double timeRange)
         {
-            // 计算点在时间范围内的相对位置
             double timePosition = (pointTime - minTime) / timeRange;
 
-            // 映射到屏幕宽度
             return (float)(timePosition * WIDTH);
         }
 
         private float CalculateY(short value)
         {
-            // 正确计算垂直位置
             float pixelValue = (float)(value / _verticalScale);
             float y = ZERO_Y - pixelValue;
 
-            // 限制在显示范围内
             if (y < 0) y = 0;
             else if (y >= HEIGHT) y = HEIGHT - 1;
 
@@ -1288,10 +1224,8 @@ namespace I2C_Tool
         {
             using (var dragPen = new Pen(Color.Blue) { DashStyle = System.Drawing.Drawing2D.DashStyle.Dash })
             {
-                // 绘制垂直线
                 _graphics.DrawLine(dragPen, _dragX, 0, _dragX, HEIGHT);
 
-                // 绘制数值信息
                 DrawValueInfo(_dragX);
             }
         }
@@ -1300,7 +1234,6 @@ namespace I2C_Tool
         {
             float infoY = 10;
 
-            // 半透明背景
             using (var backBrush = new SolidBrush(Color.FromArgb(200, Color.White)))
             {
                 int infoHeight = 15 * _waveData.Count;
@@ -1312,7 +1245,6 @@ namespace I2C_Tool
                 var wave = kvp.Key;
                 var data = kvp.Value;
 
-                // 复制数据
                 DataPoint[] points;
                 lock (data)
                 {
@@ -1321,16 +1253,13 @@ namespace I2C_Tool
 
                 if (points.Length == 0) continue;
 
-                // 获取数据的时间范围
                 double minTime = points.Min(p => p.TimeMs);
                 double maxTime = points.Max(p => p.TimeMs);
                 double timeRange = maxTime - minTime;
                 if (timeRange <= 0) timeRange = _currentTimeBase;
 
-                // 计算鼠标位置对应的时间
                 double pointTime = minTime + (xPos * timeRange) / WIDTH;
 
-                // 查找最近的有效数据点
                 DataPoint? nearest = null;
                 double minDiff = double.MaxValue;
 
@@ -1440,13 +1369,11 @@ namespace I2C_Tool
             if (string.IsNullOrWhiteSpace(input))
                 return Array.Empty<byte>();
 
-            // 检测是否包含 "0x" 或 "0X" 前缀格式
             if (input.IndexOf("0x", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 return ParseHexWithPrefix(input);
             }
 
-            // 标准十六进制格式处理
             return ParseStandardHex(input);
         }
 
@@ -1478,27 +1405,24 @@ namespace I2C_Tool
 
             while (index < input.Length)
             {
-                // 检查 "0x" 或 "0X" 前缀
                 if (index < input.Length - 2 &&
                     input[index] == '0' &&
                     (input[index + 1] == 'x' || input[index + 1] == 'X') &&
                     IsHexChar(input[index + 2]))
                 {
-                    index += 2; // 跳过 "0x" 前缀
+                    index += 2;
 
-                    // 收集连续的十六进制字符
                     int end = index;
                     while (end < input.Length && IsHexChar(input[end])) end++;
 
                     string hexBlock = input.Substring(index, end - index);
-                    index = end; // 更新索引
+                    index = end;
 
-                    // 处理十六进制块
                     ProcessHexBlock(hexBlock, result);
                 }
                 else
                 {
-                    index++; // 跳过无效字符
+                    index++;
                 }
             }
 
@@ -1509,16 +1433,13 @@ namespace I2C_Tool
         {
             int charCount = hexBlock.Length;
 
-            // 处理奇数长度的情况
             if (charCount % 2 != 0)
             {
-                // 尝试将第一个字符作为高位（前面补0）
                 result.Add((byte)CharToNibble(hexBlock[0]));
                 hexBlock = hexBlock.Substring(1);
                 charCount = hexBlock.Length;
             }
 
-            // 处理剩余字符
             for (int i = 0; i < charCount; i += 2)
             {
                 int highNibble = CharToNibble(hexBlock[i]);
@@ -1611,7 +1532,6 @@ namespace I2C_Tool
             _statusChanged?.Invoke(null, EventArgs.Empty);
         }
 
-        // 订阅管理方法
         public static bool IsSubscribed(EventHandler handler)
         {
             lock (_handlers)
@@ -1632,7 +1552,6 @@ namespace I2C_Tool
 
             if (disposing)
             {
-                // 释放托管资源
                 lock (_handlers)
                 {
                     foreach (var handler in _handlers)
@@ -1643,7 +1562,6 @@ namespace I2C_Tool
                 }
             }
 
-            // 这里没有非托管资源需要释放
             _disposed = true;
         }
 
@@ -2140,11 +2058,10 @@ namespace I2C_Tool
                         if (reg != null)
                         {
                             byte[] bytes = item.Value.ToArray();
-                            reg.RegisterValue = bytes; // 这会触发RegisterValueChanged事件
+                            reg.RegisterValue = bytes;
                         }
                     }
 
-                    // 触发刷新完成事件
                     RegisterRefreshed?.Invoke(this, EventArgs.Empty);
                 }
                 Thread.Sleep(FlushDelay);

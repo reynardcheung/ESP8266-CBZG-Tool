@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Project\\WirelessSTM32ISP\\",
+  "WorkspaceRootPath": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessSTM32ISP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessSTM32ISP.csproj|d:\\project\\wirelessstm32isp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessSTM32ISP.csproj|e:\\esp8266\\msys32\\home\\a\\esp\\esp8266-cbzg-tool\\controller-cbzg-tool-source\\module-source\\wirelessstm32isp\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessSTM32ISP.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessSTM32ISP.csproj|D:\\Project\\WirelessSTM32ISP\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessSTM32ISP.csproj|E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessSTM32ISP\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessSTM32ISP.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessSTM32ISP.csproj|D:\\Project\\WirelessSTM32ISP\\entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessSTM32ISP.csproj|E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessSTM32ISP\\entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessSTM32ISP.csproj|solutionrelative:entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -32,11 +32,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainForm.cs",
-              "DocumentMoniker": "D:\\Project\\WirelessSTM32ISP\\MainForm.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessSTM32ISP\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
-              "ToolTip": "D:\\Project\\WirelessSTM32ISP\\MainForm.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessSTM32ISP\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAmwAgAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAANkAAAAAAAAAAAASwOoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-08T08:59:17.977Z",
               "EditorCaption": ""
@@ -45,10 +45,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainForm.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "D:\\Project\\WirelessSTM32ISP\\MainForm.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessSTM32ISP\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "D:\\Project\\WirelessSTM32ISP\\MainForm.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "MainForm.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-04T06:50:39.186Z"
             },
@@ -56,9 +55,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Entry.cs",
-              "DocumentMoniker": "D:\\Project\\WirelessSTM32ISP\\Entry.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessSTM32ISP\\Entry.cs",
               "RelativeDocumentMoniker": "Entry.cs",
-              "ToolTip": "D:\\Project\\WirelessSTM32ISP\\Entry.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessSTM32ISP\\Entry.cs",
               "RelativeToolTip": "Entry.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAxwDMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

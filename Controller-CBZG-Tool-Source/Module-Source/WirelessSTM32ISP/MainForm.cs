@@ -217,16 +217,9 @@ namespace WirelessSTM32ISP
 
         private byte[] ReadFile(FileStream file, long StartIndex, int Number)
         {
-            // 创建一个字节数组用于存放读取的内容
             byte[] buffer = new byte[Number];
-
-            // 设置文件流的位置到StartIndex
             file.Seek(StartIndex, SeekOrigin.Begin);
-
-            // 读取指定数量的字节到缓冲区
             int bytesRead = file.Read(buffer, 0, Number);
-
-            // 如果实际读取的字节少于请求的数量，返回已读取的部分
             if (bytesRead < Number)
             {
                 byte[] result = new byte[bytesRead];

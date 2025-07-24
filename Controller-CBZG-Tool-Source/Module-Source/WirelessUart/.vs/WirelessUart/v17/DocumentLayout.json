@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Project\\WirelessUart\\",
+  "WorkspaceRootPath": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessUart\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|D:\\Project\\WirelessUart\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|d:\\project\\wirelessuart\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessUart\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|D:\\Project\\WirelessUart\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessUart\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|solutionrelative:class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|e:\\esp8266\\msys32\\home\\a\\esp\\esp8266-cbzg-tool\\controller-cbzg-tool-source\\module-source\\wirelessuart\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|WirelessUart.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,15 +22,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1252,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "D:\\Project\\WirelessUart\\Form1.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessUart\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Project\\WirelessUart\\Form1.cs [\u8BBE\u8BA1]",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessUart\\Form1.cs [\u8BBE\u8BA1]",
               "RelativeToolTip": "Form1.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-15T03:17:43.258Z",
@@ -43,28 +43,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\Project\\WirelessUart\\Form1.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessUart\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Project\\WirelessUart\\Form1.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessUart\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAACQHAAAAAAAAAAAnwIQHAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAOoGAAAAAAAAAAAawOAGAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-01T06:43:22.111Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\Project\\WirelessUart\\Class1.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessUart\\Class1.cs",
               "RelativeDocumentMoniker": "Class1.cs",
-              "ToolTip": "D:\\Project\\WirelessUart\\Class1.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\WirelessUart\\Class1.cs",
               "RelativeToolTip": "Class1.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAIwBIAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAuwBkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T17:04:47.658Z"
+              "WhenOpened": "2025-02-14T17:04:47.658Z",
+              "EditorCaption": ""
             }
           ]
         },

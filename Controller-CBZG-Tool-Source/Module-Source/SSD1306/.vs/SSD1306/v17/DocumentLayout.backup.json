@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Project\\SSD1306\\",
+  "WorkspaceRootPath": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|D:\\Project\\SSD1306\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|d:\\project\\ssd1306\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|D:\\Project\\SSD1306\\entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|e:\\esp8266\\msys32\\home\\a\\esp\\esp8266-cbzg-tool\\controller-cbzg-tool-source\\module-source\\ssd1306\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|SSD1306.csproj|solutionrelative:entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|I2C_Tool.csproj|D:\\Project\\SSD1306\\entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|I2C_Tool.csproj|E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|I2C_Tool.csproj|solutionrelative:entry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1252,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,11 +34,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "D:\\Project\\SSD1306\\Form1.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Project\\SSD1306\\Form1.cs [\u8BBE\u8BA1]",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\Form1.cs [\u8BBE\u8BA1]",
               "RelativeToolTip": "Form1.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T05:14:49.057Z",
@@ -46,11 +46,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\Project\\SSD1306\\Form1.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Project\\SSD1306\\Form1.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
               "ViewState": "AgIAAKYBAAAAAAAAAAAmwL4BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -61,9 +61,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Entry.cs",
-              "DocumentMoniker": "D:\\Project\\SSD1306\\Entry.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\Entry.cs",
               "RelativeDocumentMoniker": "Entry.cs",
-              "ToolTip": "D:\\Project\\SSD1306\\Entry.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\Entry.cs",
               "RelativeToolTip": "Entry.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAA2wC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -73,9 +73,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Entry.cs",
-              "DocumentMoniker": "D:\\Project\\SSD1306\\Entry.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\Entry.cs",
               "RelativeDocumentMoniker": "Entry.cs",
-              "ToolTip": "D:\\Project\\SSD1306\\Entry.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\SSD1306\\Entry.cs",
               "RelativeToolTip": "Entry.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAcwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

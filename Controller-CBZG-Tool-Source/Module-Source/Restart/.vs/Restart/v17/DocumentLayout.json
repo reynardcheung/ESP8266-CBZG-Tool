@@ -1,16 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Project\\Restart\\",
+  "WorkspaceRootPath": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Restart\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|Restart.csproj|d:\\project\\restart\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|Restart.csproj|e:\\esp8266\\msys32\\home\\a\\esp\\esp8266-cbzg-tool\\controller-cbzg-tool-source\\module-source\\restart\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|Restart.csproj|solutionrelative:class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Restart||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AA8AD928-2A46-44E3-B01D-4F7F260CEF7C}|Restart.csproj|d:\\project\\restart\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -28,25 +22,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Restart",
-              "DocumentMoniker": "D:\\Project\\Restart\\Restart.csproj",
-              "RelativeDocumentMoniker": "Restart.csproj",
-              "ToolTip": "D:\\Project\\Restart\\Restart.csproj",
-              "RelativeToolTip": "Restart.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-07-23T09:46:00.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\Project\\Restart\\Class1.cs",
+              "DocumentMoniker": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Restart\\Class1.cs",
               "RelativeDocumentMoniker": "Class1.cs",
-              "ToolTip": "D:\\Project\\Restart\\Class1.cs",
+              "ToolTip": "E:\\ESP8266\\msys32\\home\\A\\esp\\ESP8266-CBZG-Tool\\Controller-CBZG-Tool-Source\\Module-Source\\Restart\\Class1.cs",
               "RelativeToolTip": "Class1.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAgwC4AAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-03T08:45:56.72Z",
               "EditorCaption": ""
