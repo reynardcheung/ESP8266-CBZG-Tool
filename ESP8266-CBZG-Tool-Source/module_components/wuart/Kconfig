@@ -1,0 +1,56 @@
+menu "ESP WUART"
+    menu "MODULE PARAM"
+####################################################
+    config ESP_WUART_MODULE_NAME
+        string "Module Name"
+        default "WirelessUart"
+        help
+            Write the name of module.
+    ####################################################
+    config ESP_WUART_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config ESP_WUART_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the version of module.
+    ####################################################
+    config ESP_WUART_CMD_NAME
+        string "Command Name"
+        default "{ESPWUART}"
+        help
+            Write the name of task.
+    ####################################################
+    config ESP_WUART_RUNNING
+        bool "Task Running"
+        default y
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+    config UART_READ_TIMEOUT
+        int "Device response timeout(ms)"
+        range 1 10000
+        default 5
+        help
+            Device response timeout.
+    ####################################################
+    config UART_SEND_TIMEOUT
+        int "Uart send timeout(ms)"
+        range 1 1000
+        default 10
+        help
+            Device response timeout.
+    ####################################################
+    config UART_READ_CHAR_MAX_LENGTH
+        int "UART Read Max Bytes"
+        range 1 10240
+        default 1024
+        help
+            Device response timeout.
+    ####################################################
+endmenu

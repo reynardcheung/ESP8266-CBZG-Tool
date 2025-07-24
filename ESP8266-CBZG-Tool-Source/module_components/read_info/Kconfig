@@ -1,0 +1,35 @@
+menu "ESP Read Info"
+    menu "MODULE PARAM"
+    ####################################################
+    config ESP_READ_INFO_MODULE_NAME
+        string "Module Name"
+        default "NULL"
+        help
+            Write the name of module.
+    ####################################################
+    config ESP_READ_INFO_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config ESP_READ_INFO_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the version of module.
+    ####################################################
+    config ESP_READ_INFO_CMD_NAME
+        string "Command Name"
+        default "{ESPREADINFO}"
+        help
+            Write the name of task.
+    ####################################################
+        config ESP_READ_INFO_RUNNING
+        bool "Task Running"
+        default n
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+endmenu

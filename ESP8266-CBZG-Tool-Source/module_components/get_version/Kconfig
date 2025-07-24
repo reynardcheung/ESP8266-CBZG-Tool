@@ -1,0 +1,41 @@
+menu "ESP Version"
+    menu "MODULE PARAM"
+    ####################################################
+    config ESP_GET_VERSION_MODULE_NAME
+        string "Module Name"
+        default "NULL"
+        help
+            Write the name of module.
+    ####################################################
+    config ESP_GET_VERSION_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config ESP_GET_VERSION_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the version of module.
+    ####################################################
+    config ESP_GET_VERSION_CMD_NAME
+        string "Command Name"
+        default "{ESPGETVERSION}"
+        help
+            Write the name of task.
+    ####################################################
+        config ESP_GET_VERSION_RUNNING
+        bool "Task Running"
+        default n
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+    config ESP_DEVICE_VERSION
+        string "ESP Device Version"
+        default "3.5.0"
+        help
+            If you dont know what you do.Do not edit.
+    ####################################################
+endmenu

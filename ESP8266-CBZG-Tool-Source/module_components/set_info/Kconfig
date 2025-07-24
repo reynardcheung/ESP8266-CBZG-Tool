@@ -1,0 +1,35 @@
+menu "ESP Set Info"
+    menu "MODULE PARAM"
+    ####################################################
+    config ESP_SETTING_MODULE_NAME
+        string "Module Name"
+        default "Settings"
+        help
+            Write the name of module.
+    ####################################################
+    config ESP_SETTING_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config ESP_SETTING_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the version of module.
+    ####################################################
+    config ESP_SETTING_CMD_NAME
+        string "Command Name"
+        default "{ESPSETTING}"
+        help
+            Write the name of task.
+    ####################################################
+        config ESP_SETTING_RUNNING
+        bool "Task Running"
+        default y
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+endmenu

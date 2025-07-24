@@ -1,0 +1,71 @@
+menu "FreeRTOS Task Configuration"
+    menu "wifi_client_task"
+        ####################################################
+        config WIFI_CLIENT_TASK_NAME
+            string "Task Name"
+            default "wifi_client"
+            help
+                Write the name of task.
+        ####################################################
+        config WIFI_CLIENT_STACK_DEPTH
+            int "Stack Depth"
+            range 0 65535
+            default 2048
+            help
+                Write the Stack of task.
+        ####################################################
+        config WIFI_CLIENT_PRIORITY
+            int "Priority"
+            range 1 9
+            default 5
+            help
+                Write the Priority of task.
+        ####################################################
+    endmenu
+    menu "wifi_client_udp_task"
+        ####################################################
+        config WIFI_CLIENT_UDP_TASK_NAME
+            string "Task Name"
+            default "wifi_client_udp"
+            help
+                Write the name of task.
+        ####################################################
+        config WIFI_CLIENT_UDP_STACK_DEPTH
+            int "Stack Depth"
+            range 0 65535
+            default 2048
+            help
+                Write the Stack of task.
+        ####################################################
+        config WIFI_CLIENT_UDP_PRIORITY
+            int "Priority"
+            range 1 9
+            default 5
+            help
+                Write the Priority of task.
+        ####################################################
+    endmenu
+    menu "wifi_reconnect_task"
+        ####################################################
+        config WIFI_RECONNECT_TASK_NAME
+            string "Task Name"
+            default "wifi_reconnect"
+            help
+                Write the name of task.
+        ####################################################
+        config WIFI_RECONNECT_STACK_DEPTH
+            int "Stack Depth"
+            range 0 65535
+            default 2048
+            help
+                Write the Stack of task.
+        ####################################################
+        config WIFI_RECONNECT_PRIORITY
+            int "Priority"
+            range 1 9
+            default 6
+            help
+                Write the Priority of task.
+        ####################################################
+    endmenu
+endmenu

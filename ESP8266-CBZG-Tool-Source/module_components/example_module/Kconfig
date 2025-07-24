@@ -1,0 +1,35 @@
+menu "EXAMPLE MODULE"
+    menu "MODULE PARAM"
+    ####################################################
+    config ESP_GET_ID_MODULE_NAME
+        string "Module Name"
+        default "NULL"
+        help
+            Write the name of module.
+    ####################################################
+    config EXAMPLE_BRIEF
+        string "Module Brief"
+        default "EXAMPLE"
+        help
+            Write the brief of module.
+    ####################################################
+    config EXAMPLE_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the versiion of module.
+    ####################################################
+    config EXAMPLE_CMD_NAME
+        string "Command Name"
+        default "{EXAMPLE}"
+        help
+            Write the name of task.
+    ####################################################
+    config EXAMPLE_RUNNING
+        bool "Task Running"
+        default y
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+endmenu

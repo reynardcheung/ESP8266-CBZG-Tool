@@ -1,0 +1,100 @@
+menu "STM32ISP PROGRAMER"
+    menu "MODULE PARAM"
+    ####################################################
+    config STM32ISPPROG_MODULE_NAME
+        string "Module Name"
+        default "STM32ISPProg"
+        help
+            Write the name of module.
+    ####################################################
+    config STM32ISPPROG_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config STM32ISPPROG_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the version of module.
+    ####################################################
+    config STM32ISPPROG_CMD_NAME
+        string "Command Name"
+        default "{STM32ISPPROG}"
+        help
+            Write the name of task.
+    ####################################################
+    config STM32ISPPROG_RUNNING
+        bool "Task Running"
+        default y
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+    ####################################################
+    config USART_READ_BYTE_WAITTIME
+        int "USART Read Time(ms)"
+        range 1 10000
+        default 20
+        help
+            Device response timeout.
+    ####################################################
+    config DEVICE_RESPONSE_TIMEOUT
+        int "Device response timeout(ms)"
+        range 1 10000
+        default 3000
+        help
+            Device response timeout.
+    ####################################################
+    config DEVICE_DOWNLOAD_STOP_TIME
+        int "Device Download Completed timeout(ms)"
+        range 1 10000
+        default 300
+        help
+            Device response timeout.
+    ####################################################
+    config DEVICE_FLASH_PROG_START_ADDR
+        hex "Device Program Address"
+        default 0x08000000
+        help
+            Device Flash Addr.
+    ####################################################
+    config DEVICE_RESTART_TIME
+        int "Device restart time(ms)"
+        range 1 10000
+        default 100
+        help
+            Device restart time.
+    ####################################################
+    choice CHOICE_GPIO0_FUNCTION_MODE
+    prompt "GPIO0 Function Configuration"
+        default GPIO0_BOOT
+        config GPIO0_RST
+            bool "Use for RST"
+            help
+                Set GPIO0 use for RST
+
+        config GPIO0_BOOT
+            bool "Use for BOOT"
+            help
+                Set GPIO0 use for BOOT
+    endchoice
+    ####################################################
+    choice CHOICE_GPIO2_FUNCTION_MODE
+    prompt "GPIO2 Function Configuration"
+        default GPIO2_RST
+        config GPIO2_RST
+            bool "Use for RST"
+            depends on GPIO0_BOOT
+            help
+                Set GPIO2 use for RST
+
+        config GPIO2_BOOT
+            bool "Use for BOOT"
+            depends on GPIO0_RST
+            help
+                Set GPIO2 use for BOOT
+    endchoice
+
+endmenu

@@ -1,0 +1,35 @@
+menu "SSD1306"
+    menu "MODULE PARAM"
+    ####################################################
+    config SSD1306_MODULE_NAME
+        string "Module Name"
+        default "SSD1306"
+        help
+            Write the name of module.
+    ####################################################
+    config SSD1306_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config SSD1306_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the name of module.
+    ####################################################
+    config SSD1306_CMD_NAME
+        string "Command Name"
+        default "{SSD1306}"
+        help
+            Write the name of task.
+    ####################################################
+        config SSD1306_RUNNING
+        bool "Task Running"
+        default y
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+endmenu

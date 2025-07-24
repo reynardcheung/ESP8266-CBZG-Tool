@@ -1,0 +1,35 @@
+menu "I2C Tool"
+    menu "MODULE PARAM"
+    ####################################################
+    config I2C_TOOL_MODULE_NAME
+        string "Module Name"
+        default "I2CTool"
+        help
+            Write the name of module.
+    ####################################################
+    config I2C_TOOL_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config I2C_TOOL_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the version of module.
+    ####################################################
+    config I2C_TOOL_CMD_NAME
+        string "Command Name"
+        default "{I2CTOOL}"
+        help
+            Write the name of task.
+    ####################################################
+        config I2C_TOOL_RUNNING
+        bool "Task Running"
+        default y
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+endmenu

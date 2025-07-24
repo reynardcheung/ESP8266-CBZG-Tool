@@ -1,0 +1,48 @@
+menu "UART Configuration"
+    menu "UARTO"
+        config UART0_BAUD_RATE
+        int "Baud Rate"
+        range 1200 9216000
+        default 115200
+        help
+            Baud Rate.
+
+        config UART0_DATA_BITS
+        int "Data Bits(0->5,1->6,2->7,3->8)"
+        range 1 3
+        default 3
+        help
+            DATA BITS(0->5,1->6,2->7,3->8).
+
+        config UART0_STOP_BITS
+        int "Stop Bits(1->1,2->1.5,3->2)"
+        range 0 3
+        default 1
+        help
+            STOP BITS(1->1,2->1.5,3->2).
+
+        config UART0_PARITY
+        int "PARITY(0->OFF,2->EVEN,3->ODD)"
+        range 0 3
+        default 0
+        help
+            PARITY(0->OFF,2->EVEN,3->ODD).
+
+        config UART0_MAX_RECEIVE_DATA_LEN
+            int "Max Length Of Receive Char"
+            range 257 1024
+            default 257
+            help
+                Write the length for max receive char.
+
+        config UART0_MAX_RECEIVE_QUEUE_LEN
+            int "Max Number Of Receive Queue"
+            range 1 256
+            default 8
+            help
+                Write the length for max receive queue.
+
+        endmenu
+        menu "UART1"
+        endmenu
+endmenu

@@ -1,0 +1,23 @@
+menu "Heart Beat Configuration"
+    choice CHOICE_HEART_BEAT_MODE
+        prompt "Heart Beat SWITCH Configuration"
+        default HEART_BEAT_ENABLE
+        config HEART_BEAT_ENABLE
+            prompt "HEART_BEAT_ENABLE"
+            bool "Heart Beat Enable"
+            help
+                Heart Beat Enable.
+
+        config HEART_BEAT_DISABLE
+            prompt "HEART_BEAT_DISABLE"
+            bool "Heart Beat Disable"
+            help
+                Heart Beat Disable.
+    endchoice
+    config HEART_BEAT_TIME
+        int "Heart Beat TimeOut(s)"
+        range 1 300
+        default 36
+        help
+            Heart Beat Time.
+endmenu

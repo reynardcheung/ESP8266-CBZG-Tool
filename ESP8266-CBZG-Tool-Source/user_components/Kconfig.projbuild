@@ -1,0 +1,8 @@
+menu "User System Option"
+    source "$ProjectPath/main/Kconfig"
+    source "$ProjectPath/user_components/user_wifi_sta_init/Kconfig"
+    source "$ProjectPath/user_components/user_gpio_init/Kconfig"
+    source "$ProjectPath/user_components/user_heart_beat/Kconfig"
+    source "$ProjectPath/user_components/user_uart_init/Kconfig"
+    source "$ProjectPath/user_components/user_web_config/Kconfig"
+endmenu

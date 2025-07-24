@@ -1,0 +1,71 @@
+menu "WIFI Connect Configuration"
+    config WIFI_SSID
+        string "WiFi SSID"
+        default "Bilibili"
+        help
+            SSID (network name) for the program to connect to.
+
+    config WIFI_PASSWORD
+        string "WiFi Password"
+        default "bili_75131931192"
+        help
+            WiFi password (WPA or WPA2) for the program to use.
+            Can be left blank if the network has no security set.
+    config WIFI_CHANNEL
+        int "Wifi Channel"
+        range 1 14
+        default 10
+        help
+            The Channel to which the client will connect to.
+    config WIFI_MAX_CONNECT_RETRY
+        int "Wifi Connect Max Retry"
+        range 0 65535
+        default 8
+        help
+            Connect to the wifi.
+endmenu
+
+menu "Client Connect Configuration"
+
+    choice IP_MODE
+        prompt "IP Version"
+        help
+        Device can use either IPV4 or IPV6.
+
+    config IPV4
+        select IPV4
+        bool "IPV4"
+
+    config IPV6
+    bool "IPV6"
+
+    endchoice
+
+    config IPV4_ADDR
+        string "IPV4 Address"
+        default "192.168.137.1"
+        depends on IPV4
+        help
+        The device will connect to this IPV4 address.
+
+    config IPV6_ADDR
+        string "IPV6 Address"
+        default "FE80::30AD:E57B:C212:68AD"
+        depends on IPV6
+        help
+        The device will connect to this IPV6 address.
+
+    config PORT
+        int "TCP Port"
+        range 0 65535
+        default 25565
+        help
+            The remote port to which the client will connect to.
+
+    config UDP_PORT
+        int "UDP Port"
+        range 0 65535
+        default 25566
+        help
+            The remote port to which the client will connect to.
+endmenu

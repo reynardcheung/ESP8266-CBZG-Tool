@@ -1,0 +1,35 @@
+menu "ESP Heart Beat"
+    menu "MODULE PARAM"
+    ####################################################
+    config ESP_HEART_BEAT_MODULE_NAME
+        string "Module Name"
+        default "NULL"
+        help
+            Write the name of module.
+    ####################################################
+    config ESP_HEART_BEAT_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config ESP_HEART_BEAT_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the version of module.
+    ####################################################
+    config ESP_HEART_BEAT_CMD_NAME
+        string "Command Name"
+        default "{ESPHEARTBEAT}"
+        help
+            Write the name of task.
+    ####################################################
+        config ESP_HEART_BEAT_RUNNING
+        bool "Task Running"
+        default n
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+endmenu

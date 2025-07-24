@@ -1,0 +1,35 @@
+menu "ESP Restart"
+    menu "MODULE PARAM"
+    ####################################################
+    config ESP_RESTART_MODULE_NAME
+        string "Module Name"
+        default "Restart"
+        help
+            Write the name of module.
+    ####################################################
+    config ESP_RESTART_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config ESP_RESTART_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the version of module.
+    ####################################################
+    config ESP_RESTART_CMD_NAME
+        string "Command Name"
+        default "{ESPRESTART}"
+        help
+            Write the name of task.
+    ####################################################
+        config ESP_RESTART_RUNNING
+        bool "Task Running"
+        default n
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+endmenu

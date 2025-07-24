@@ -1,0 +1,35 @@
+menu "ESP GET ID"
+    menu "MODULE PARAM"
+    ####################################################
+    config ESP_GET_ID_MODULE_NAME
+        string "Module Name"
+        default "NULL"
+        help
+            Write the name of module.
+    ####################################################
+    config ESP_GET_ID_BRIEF
+        string "Module Brief"
+        default "System Components"
+        help
+            Write the brief of module.
+    ####################################################
+    config ESP_GET_ID_VERSION
+        string "Module Version"
+        default "3.0.0"
+        help
+            Write the versiion of module.
+    ####################################################
+    config ESP_GET_ID_CMD_NAME
+        string "Command Name"
+        default "{ESPGETID}"
+        help
+            Write the name of task.
+    ####################################################
+    config ESP_GET_ID_RUNNING
+        bool "Task Running"
+        default n
+        help
+            Write the name of task.
+    ####################################################
+    endmenu
+endmenu

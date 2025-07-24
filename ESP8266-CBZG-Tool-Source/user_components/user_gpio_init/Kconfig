@@ -1,0 +1,245 @@
+menu "GPIO Configuration"
+    menu "GPIO0"
+        ####################################################
+        choice CHOICE_GPIO0_MODE
+            prompt "GPIO MODE"
+            default GPIO0_MODE_OUTPUT
+
+            config GPIO0_MODE_DISABLE
+                prompt "GPIO_MODE_DISABLE"
+                bool "Disable"
+                help
+                    Disable assertions, adding -DNDEBUG to CPPFLAGS.
+
+            config GPIO0_MODE_INPUT
+                prompt "GPIO_MODE_INPUT"
+                bool "Input"
+                help
+                    Set GPIO0 as input mode.
+
+            config GPIO0_MODE_OUTPUT
+                prompt "GPIO_MODE_OUTPUT"
+                bool "Output"
+                help
+                    Set GPIO0 as output mode.
+
+            config GPIO0_MODE_OUTPUT_OD
+                prompt "GPIO_MODE_OUTPUT_OD"
+                bool "Output Open-Drain"
+                help
+                    Set GPIO0 as output open-drain mode.
+        endchoice
+        config GPIO0_MODE
+            int
+            depends on GPIO0_MODE_DISABLE
+            default GPIO_MODE_DISABLE
+
+        config GPIO0_MODE
+            int
+            depends on GPIO0_MODE_INPUT
+            default GPIO_MODE_INPUT
+
+        config GPIO0_MODE
+            int
+            depends on GPIO0_MODE_OUTPUT
+            default GPIO_MODE_OUTPUT
+
+        config GPIO0_MODE
+            int
+            depends on GPIO0_MODE_OUTPUT_OD
+            default GPIO_MODE_OUTPUT_OD
+        ####################################################
+        choice CHOICE_GPIO0_Pull_Down_MODE
+            prompt "GPIO PullDown Configuration"
+            default GPIO0_PullDown_Enalbe
+            config GPIO0_PullDown_Enalbe
+                prompt "GPIO_PULLDOWN_ENABLE"
+                bool "ENABLE"
+                help
+                    Enable GPIO0 Pull Down
+
+            config GPIO0_PullDown_Disable
+                prompt "GPIO_PULLDOWN_DISABLE"
+                bool "DISABLE"
+                help
+                    DIsable GPIO0 Pull Down
+        endchoice
+        config GPIO0_PULLDOWN_MODE
+            int
+            depends on GPIO0_PullDown_Enalbe
+            default GPIO_PULLDOWN_ENABLE
+
+        config GPIO0_PULLDOWN_MODE
+            int
+            depends on GPIO0_PullDown_Disable
+            default GPIO_PULLDOWN_DISABLE
+        ####################################################
+        choice CHOICE_GPIO0_Pull_Up_MODE
+            prompt "GPIO PullUp Configuration"
+            default GPIO0_PullUp_Enalbe
+            config GPIO0_PullUp_Enalbe
+                prompt "GPIO_PULLUP_ENABLE"
+                bool "ENABLE"
+                help
+                    Enable GPIO0 Pull Down
+
+            config GPIO0_PullUp_Disable
+                prompt "GPIO_PULLUP_DISABLE"
+                bool "DISABLE"
+                help
+                    DIsable GPIO0 Pull Down
+        endchoice
+        config GPIO0_PULLUP_MODE
+            int
+            depends on GPIO0_PullUp_Enalbe
+            default GPIO_PULLUP_ENABLE
+
+        config GPIO0_PULLUP_MODE
+            int
+            depends on GPIO0_PullUp_Disable
+            default GPIO_PULLUP_DISABLE
+        ####################################################
+        config GPIO0_INTR_LEVEL
+            int "Interrupt level"
+            range 0 6
+            default 0
+            help
+                GPIO_INTR_DISABLE = 0,      Disable GPIO interrupt
+                GPIO_INTR_POSEDGE = 1,      GPIO interrupt type : rising edge
+                GPIO_INTR_NEGEDGE = 2,      GPIO interrupt type : falling edge
+                GPIO_INTR_ANYEDGE = 3,      GPIO interrupt type : both rising and falling edge
+                GPIO_INTR_LOW_LEVEL = 4,    GPIO interrupt type : input low level trigger
+                GPIO_INTR_HIGH_LEVEL = 5,   GPIO interrupt type : input high level trigger
+                GPIO_INTR_MAX = 6
+        ####################################################
+        config GPIO0_INIT_LEVEL
+            int "GPIO0 Init Level"
+            range 0 1
+            default 0
+            help
+                HIGH:1,
+                LOW:0
+    endmenu
+
+    menu "GPIO2"
+        ####################################################
+        choice CHOICE_GPIO2_MODE
+            prompt "GPIO MODE"
+            default GPIO2_MODE_OUTPUT
+
+            config GPIO2_MODE_DISABLE
+                prompt "GPIO_MODE_DISABLE"
+                bool "Disable"
+                help
+                    Disable assertions, adding -DNDEBUG to CPPFLAGS.
+
+            config GPIO2_MODE_INPUT
+                prompt "GPIO_MODE_INPUT"
+                bool "Input"
+                help
+                    Set GPIO2 as input mode.
+
+            config GPIO2_MODE_OUTPUT
+                prompt "GPIO_MODE_OUTPUT"
+                bool "Output"
+                help
+                    Set GPIO2 as output mode.
+
+            config GPIO2_MODE_OUTPUT_OD
+                prompt "GPIO_MODE_OUTPUT_OD"
+                bool "Output Open-Drain"
+                help
+                    Set GPIO2 as output open-drain mode.
+        endchoice
+        config GPIO2_MODE
+            int
+            depends on GPIO2_MODE_DISABLE
+            default GPIO_MODE_DISABLE
+
+        config GPIO2_MODE
+            int
+            depends on GPIO2_MODE_INPUT
+            default GPIO_MODE_INPUT
+
+        config GPIO2_MODE
+            int
+            depends on GPIO2_MODE_OUTPUT
+            default GPIO_MODE_OUTPUT
+
+        config GPIO2_MODE
+            int
+            depends on GPIO2_MODE_OUTPUT_OD
+            default GPIO_MODE_OUTPUT_OD
+        ####################################################
+        choice CHOICE_GPIO2_Pull_Down_MODE
+            prompt "GPIO PullDown Configuration"
+            default GPIO2_PullDown_Enalbe
+            config GPIO2_PullDown_Enalbe
+                prompt "GPIO_PULLDOWN_ENABLE"
+                bool "ENABLE"
+                help
+                    Enable GPIO2 Pull Down
+
+            config GPIO2_PullDown_Disable
+                prompt "GPIO_PULLDOWN_DISABLE"
+                bool "DISABLE"
+                help
+                    DIsable GPIO2 Pull Down
+        endchoice
+        config GPIO2_PULLDOWN_MODE
+            int
+            depends on GPIO2_PullDown_Enalbe
+            default GPIO_PULLDOWN_ENABLE
+
+        config GPIO2_PULLDOWN_MODE
+            int
+            depends on GPIO2_PullDown_Disable
+            default GPIO_PULLDOWN_DISABLE
+        ####################################################
+        choice CHOICE_GPIO2_Pull_Up_MODE
+            prompt "GPIO PullUp Configuration"
+            default GPIO2_PullUp_Enalbe
+            config GPIO2_PullUp_Enalbe
+                prompt "GPIO_PULLUP_ENABLE"
+                bool "ENABLE"
+                help
+                    Enable GPIO2 Pull Down
+
+            config GPIO2_PullUp_Disable
+                prompt "GPIO_PULLUP_DISABLE"
+                bool "DISABLE"
+                help
+                    DIsable GPIO2 Pull Down
+        endchoice
+        config GPIO2_PULLUP_MODE
+            int
+            depends on GPIO2_PullUp_Enalbe
+            default GPIO_PULLUP_ENABLE
+
+        config GPIO2_PULLUP_MODE
+            int
+            depends on GPIO2_PullUp_Disable
+            default GPIO_PULLUP_DISABLE
+        ####################################################
+        config GPIO2_INTR_LEVEL
+            int "Interrupt level"
+            range 0 6
+            default 0
+            help
+                GPIO_INTR_DISABLE = 0,      Disable GPIO interrupt
+                GPIO_INTR_POSEDGE = 1,      GPIO interrupt type : rising edge
+                GPIO_INTR_NEGEDGE = 2,      GPIO interrupt type : falling edge
+                GPIO_INTR_ANYEDGE = 3,      GPIO interrupt type : both rising and falling edge
+                GPIO_INTR_LOW_LEVEL = 4,    GPIO interrupt type : input low level trigger
+                GPIO_INTR_HIGH_LEVEL = 5,   GPIO interrupt type : input high level trigger
+                GPIO_INTR_MAX = 6
+        ####################################################
+        config GPIO2_INIT_LEVEL
+            int "GPIO2 Init Level"
+            range 0 1
+            default 1
+            help
+                HIGH:1,
+                LOW:0
+    endmenu
+endmenu

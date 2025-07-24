@@ -1,0 +1,87 @@
+menu "Command Analyse"
+    ####################################################
+    config CommandAnalyse_NAME
+        string "Task Name"
+        default "C_A_Task"
+        help
+            Write the name of task.
+    ####################################################
+    config CommandAnalyse_STACK_DEPTH
+        int "Stack Depth"
+        range 0 65535
+        default 2048
+        help
+            Write the Stack of task.
+    ####################################################
+    config CommandAnalyse_PRIORITY
+        int "Priority"
+        range 1 9
+        default 5
+        help
+            Write the Priority of task.
+    ####################################################
+    config MAX_RECEIVE_DATA_LEN
+        int "max length of receive char"
+        range 128 4096
+        default 1024
+        help
+            Write the length for max receive char.
+    ####################################################
+    config CommandAnalyseQueueLength
+        int "CommandAnalyseQueue Length"
+        range 1 128
+        default 4
+        help
+            This option can set the queue length.
+    ####################################################
+    config MAX_COMMAND_NUM
+        int "Max Command Num"
+        range 1 128
+        default 32
+        help
+            This option can set the Command length.
+    ####################################################
+    config MAX_COMMAND_NAME_LENGTH
+    int "Max char of command name"
+    range 1 1024
+    default 64
+    help
+        The Char Of Command Name.
+    ####################################################
+endmenu 
+menu "Running Action"
+    ####################################################
+    config RunningActionTask_NAME
+        string "Task Name"
+        default "R_A_Task"
+        help
+            Write the name of task.
+    ####################################################
+    config RunningActionTask_STACK_DEPTH
+        int "Stack Depth"
+        range 0 65535
+        default 2048
+        help
+            Write the Stack of task.
+    ####################################################
+    config RunningActionTask_PRIORITY
+        int "Priority"
+        range 1 9
+        default 5
+        help
+            Write the Priority of task.
+    ####################################################
+    config ACTION_INTERVAL
+    int "Running Action Interval"
+    range 1 1000
+    default 100
+    help
+        Scan data queue interval.
+    ####################################################
+    config DataQueueLength
+        int "Data Length"
+        range 1 128
+        default 4
+        help
+            This option can set the queue length.
+endmenu
