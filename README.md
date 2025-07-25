@@ -7,7 +7,7 @@
 This project is licensed under the **BSD 3-Clause** License.  
 
 ## Firmware Download Link  
-[https://wwvs.lanzoue.com/ivpft31scg1c]  
+https://wwvs.lanzoue.com/b02u3fkyja  
 Password: arql  
 
 ## Core Features  
