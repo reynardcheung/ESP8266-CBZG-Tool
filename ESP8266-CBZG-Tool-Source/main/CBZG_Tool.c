@@ -146,7 +146,7 @@ void app_main()
     wifi_init_sta(&WIFI_CONNECT_FLAG);
     if(!WIFI_CONNECT_FLAG)
     {
-        vTaskDelete(NULL);
+        // vTaskDelete(NULL);
     }
     
 
