@@ -28,11 +28,12 @@ Password: arql
 | Power Supply | 3.3V/500mA stable power source |  
 
 ## Development Environment Setup  
+### Clone ESP8266 RTOS SDK v3.4  
 ```properties  
-# Clone ESP8266 RTOS SDK v3.4  
 git clone https://github.com/espressif/ESP8266_RTOS_SDK.git  
-
-```properties
+```
+### Project Configuration 
+```bash
 make menuconfig
 ```
 
@@ -42,12 +43,12 @@ make menuconfig
 ## Flashing Guide
 1. Connect ESP01S to serial tool (TX/RX/3V3/GND)  
 2. Use Espressif's official flashing tool  
-3 .Recommended to erase Flash before flashing  
-Critical settings:  
-5. Flash Size: Select according to module (typically 1MB)  
-5.1 Flash Mode: QIO  
-5.2 SPI SPEED: 40MHz  
-5.3 Baud Rate: ≤1Mbps  
+3. Recommended to erase Flash before flashing  
+### Critical settings:  
+Flash Size: Select according to module (typically 1MB)  
+1. Flash Mode: QIO  
+2. SPI SPEED: 40MHz  
+3. Baud Rate: ≤1Mbps  
 
 ## Usage Instructions
 For most users, pre-built firmware is recommended:  
