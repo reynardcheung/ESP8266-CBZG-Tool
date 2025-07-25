@@ -65,7 +65,7 @@ WiFi SSID和密码（仅支持2.4GHz网络）
 │   ├── user_wifi_sta_init/ # WiFi连接  
 │   ├── user_web_config/    # 网页配网  
 │   └── user_flash_rw/      # NVS保存  
-│   ... 
+│   ...  
 ├── module_components/      # 功能模块  
 │   ├── gpio_manager/       # GPIO控制  
 │   ├── SSD1306/            # OLED调试  
