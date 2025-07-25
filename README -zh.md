@@ -7,7 +7,7 @@
 本项目采用 **BSD 3-Clause** 许可证。
 
 ## 程序下载链接
-[https://wwvs.lanzoue.com/ivpft31scg1c]
+https://wwvs.lanzoue.com/b02u3fkyja
 密码:arql
 
 ## 核心功能
