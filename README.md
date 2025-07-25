@@ -41,55 +41,50 @@ make menuconfig
 ### 设置输出: UART for console output → UART0
 
 ## 烧录指南
-连接ESP01S到串口工具 (TX/RX/3V3/GND)
-使用乐鑫官方烧录工具
-建议先擦除Flash后再进行烧录
-关键烧录设置：
-Flash Size: 根据你的模块Flash大小选择，市面通常1MB
-Flash Mode: QIO
-SPI SPEED: 40MHz
-波特率: ≤1Mbps
+连接ESP01S到串口工具 (TX/RX/3V3/GND) 
+使用乐鑫官方烧录工具 
+建议先擦除Flash后再进行烧录 
+关键烧录设置： 
+Flash Size: 根据你的模块Flash大小选择，市面通常1MB 
+Flash Mode: QIO 
+SPI SPEED: 40MHz 
+波特率: ≤1Mbps 
 
 ## 使用说明
-对于大多数人来说，建议使用打包好的工具：
-首次配置或超过1分钟无法连接WIFI模块进入AP模式
-连接WiFi: CBZG_Tool_AP
-访问配置页面: http://192.168.4.1
-填写配置信息：
-WiFi SSID和密码（仅支持2.4GHz网络）
-服务器IP和端口
+对于大多数人来说，建议使用打包好的工具： 
+首次配置或超过1分钟无法连接WIFI模块进入AP模式 
+连接WiFi: CBZG_Tool_AP 
+访问配置页面: http://192.168.4.1 
+填写配置信息： 
+WiFi SSID和密码（仅支持2.4GHz网络） 
+服务器IP和端口 
 
 ## 项目结构
-├── main/                   # 主应用程序
-├── user_components/        # 公共库
-│   ├── user_wifi_sta_init/ # WiFi连接
-│   ├── user_web_config/    # 网页配网
-│   └── user_flash_rw/      # NVS保存
-│   ...
-├── module_components/      # 功能模块
-│   ├── gpio_manager/       # GPIO控制
-│   ├── SSD1306/            # OLED调试
-│   └── I2C_Tool/           # I2C调试
-│   ...
-└── build/                  # 编译输出
+├── main/                   # 主应用程序 
+├── user_components/        # 公共库 
+│   ├── user_wifi_sta_init/ # WiFi连接 
+│   ├── user_web_config/    # 网页配网 
+│   └── user_flash_rw/      # NVS保存 
+│   ... 
+├── module_components/      # 功能模块 
+│   ├── gpio_manager/       # GPIO控制 
+│   ├── SSD1306/            # OLED调试 
+│   └── I2C_Tool/           # I2C调试 
+│   ... 
+└── build/                  # 编译输出 
 
 ## 故障排除
 ### 无法连接WiFi
-1.确认SSID/密码正确
-2.确保为2.4GHz网络
-3.检查信号强度
+1.确认SSID/密码正确 
+2.确保为2.4GHz网络 
+3.检查信号强度 
 ### PWM功能异常
-PWM功能暂时无法使用，原因未知，查询多方资料，查看例程无果
+PWM功能暂时无法使用，原因未知，查询多方资料，查看例程无果 
 ### 上位机可能存在的内存泄漏
-正在查明原因
+正在查明原因 
 ### 其他问题请告知我
 
-
-## 致谢
-Espressif Systems - ESP8266 RTOS SDK
-DeepSeek/Kimi/ChatGPT - 开发支持
-
 ## 开发计划
-1.修复GPIO PWM功能
-2.增加更多模块
-3.优化程序，增强稳定性
+1.修复GPIO PWM功能 
+2.增加更多模块 
+3.优化程序，增强稳定性 
