@@ -347,6 +347,7 @@ namespace WirelessDownloadTool3._5
                 {
                     listener.Stop();
                     listener.Dispose();
+                    listener = null;
                 }
             }
         }

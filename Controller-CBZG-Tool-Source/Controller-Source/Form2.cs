@@ -340,7 +340,7 @@ namespace WirelessDownloadTool3._5
             {
                 string Version = Device.DeviceVersion.Replace("\0", "");
 
-                if (FileInfo.FileVersion != Version)
+                if (FileInfo.ProductVersion != Version)
                 {
                     var Result = MessageBox.Show($"警告：模块需求版本与插件版本不同，是否继续？", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (Result == DialogResult.Yes)

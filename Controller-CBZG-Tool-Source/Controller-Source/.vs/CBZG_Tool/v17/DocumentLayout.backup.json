@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "D:\\Project\\CBZG_Tool\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|d:\\project\\cbzg_tool\\cbzg_tool.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|solutionrelative:cbzg_tool.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|d:\\project\\cbzg_tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|d:\\project\\cbzg_tool\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|d:\\project\\cbzg_tool\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|WirelessDownloadTool3.5.csproj|D:\\Project\\CBZG_Tool\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|WirelessDownloadTool3.5.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|D:\\Project\\CBZG_Tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|d:\\project\\cbzg_tool\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A4669AB-2FC2-41CF-920C-0FC63FD16B30}|CBZG_Tool.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,49 +35,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CBZG_Tool",
-              "DocumentMoniker": "D:\\Project\\CBZG_Tool\\CBZG_Tool.csproj",
-              "RelativeDocumentMoniker": "CBZG_Tool.csproj",
-              "ToolTip": "D:\\Project\\CBZG_Tool\\CBZG_Tool.csproj",
-              "RelativeToolTip": "CBZG_Tool.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-23T16:41:45.07Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form2.cs [Design]",
-              "DocumentMoniker": "D:\\Project\\CBZG_Tool\\Form2.cs",
-              "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "D:\\Project\\CBZG_Tool\\Form2.cs [Design]",
-              "RelativeToolTip": "Form2.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T08:26:23.806Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form1.cs [\u8BBE\u8BA1]",
+              "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Project\\CBZG_Tool\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Project\\WirelessDownloadTool3.5\\Form1.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "..\\WirelessDownloadTool3.5\\Form1.cs [\u8BBE\u8BA1]",
+              "ToolTip": "D:\\Project\\CBZG_Tool\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T08:26:23.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form2.cs",
-              "DocumentMoniker": "D:\\Project\\CBZG_Tool\\Form2.cs",
-              "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "D:\\Project\\CBZG_Tool\\Form2.cs",
-              "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAWwIAAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T19:06:32.007Z"
+              "WhenOpened": "2025-07-24T08:38:38.242Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -89,10 +51,36 @@
               "Title": "Form2.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "D:\\Project\\CBZG_Tool\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "D:\\Project\\WirelessDownloadTool3.5\\Form2.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "..\\WirelessDownloadTool3.5\\Form2.cs [\u8BBE\u8BA1]",
+              "ToolTip": "D:\\Project\\CBZG_Tool\\Form2.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "Form2.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T05:56:51.769Z"
+              "WhenOpened": "2025-07-23T08:26:23.806Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "D:\\Project\\CBZG_Tool\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\Project\\CBZG_Tool\\Form1.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "Form1.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T08:26:23.836Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "D:\\Project\\CBZG_Tool\\Form2.cs",
+              "RelativeDocumentMoniker": "Form2.cs",
+              "ToolTip": "D:\\Project\\CBZG_Tool\\Form2.cs",
+              "RelativeToolTip": "Form2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T19:06:32.007Z",
+              "EditorCaption": ""
             }
           ]
         },
