@@ -1,7 +1,7 @@
 # ChangBuZhangGong Toolbox - ESP01S Embedded Wireless Debugging Tool  
 
 ## Project Overview  
-**Longbow Toolbox** is an open-source embedded development and debugging tool based on the ESP01S module. It solves the problems of expensive traditional wireless debuggers and complex manufacturing processes. Through wireless TCP communication, it enables multiple debugging functions, significantly lowering the barrier to embedded development.  
+**ChangBuZhangGong Toolbox** is an open-source embedded development and debugging tool based on the ESP01S module. It solves the problems of expensive traditional wireless debuggers and complex manufacturing processes. Through wireless TCP communication, it enables multiple debugging functions, significantly lowering the barrier to embedded development.  
 
 ## License  
 This project is licensed under the **BSD 3-Clause** License.  
@@ -40,14 +40,14 @@ make menuconfig
 ### Set Output: UART for console output → UART0
 
 ## Flashing Guide
-1.Connect ESP01S to serial tool (TX/RX/3V3/GND)  
-2.Use Espressif's official flashing tool  
-3.Recommended to erase Flash before flashing  
+1. Connect ESP01S to serial tool (TX/RX/3V3/GND)  
+2. Use Espressif's official flashing tool  
+3 .Recommended to erase Flash before flashing  
 Critical settings:  
-5.Flash Size: Select according to module (typically 1MB)  
-5.1Flash Mode: QIO  
-5.2SPI SPEED: 40MHz  
-5.3Baud Rate: ≤1Mbps  
+5. Flash Size: Select according to module (typically 1MB)  
+5.1 Flash Mode: QIO  
+5.2 SPI SPEED: 40MHz  
+5.3 Baud Rate: ≤1Mbps  
 
 ## Usage Instructions
 For most users, pre-built firmware is recommended:  
